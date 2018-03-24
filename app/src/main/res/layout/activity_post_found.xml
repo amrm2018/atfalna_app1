@@ -458,19 +458,19 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="1dp">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center"-->
+                        <!--android:padding="1dp">-->
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_share_p" />
+                        <!--<ImageView-->
+                            <!--android:layout_width="40dp"-->
+                            <!--android:layout_height="25dp"-->
+                            <!--android:src="@drawable/ic_share_p" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -512,7 +512,9 @@
                         <ImageView
                             android:layout_width="45dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_like1" />
+                            android:src="@drawable/ic_like1"
+                            android:id="@+id/img_like_f_1"
+                            android:onClick="btn_add_like_f"/>
 
 
                     </LinearLayout>

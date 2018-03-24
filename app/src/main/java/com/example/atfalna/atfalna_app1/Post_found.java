@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
@@ -30,11 +32,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class Post_found extends AppCompatActivity {
 
     TextView tv_code_p, tv_user_name_f, tv_date_p_f, tv_time_p_f, tv_city, tv_day, tv_month,
-            tv_year, tv_gender, tv_phone, tv_place, tv_info, tv_place_map1;
-    ImageView img_p_f;
+            tv_year, tv_gender, tv_phone, tv_place, tv_info, tv_place_map1 ,tv_total_like_f;
+    ImageView img_p_f  , img_like_f_1;
 
     EditText ed_comm_p_f, ed_comm_p_f_alert;
     String S_user_id_f;// صاحب البوست
@@ -49,6 +53,7 @@ public class Post_found extends AppCompatActivity {
     ListView  listV_comm_f_alert;
 
     String S_code_p_f, S_lat_f, S_lng_f;
+
 
 
     @Override
@@ -69,6 +74,8 @@ public class Post_found extends AppCompatActivity {
         tv_place = findViewById(R.id.tv_place_f);
         tv_info = findViewById(R.id.tv_info_f);
 
+        img_like_f_1=findViewById(R.id.img_like_f_1);
+        tv_total_like_f=findViewById(R.id.tv_total_like_f);
 
 
         tv_place_map1 = findViewById(R.id.tv_place_map1);
@@ -104,7 +111,7 @@ public class Post_found extends AppCompatActivity {
         tv_user_name_f.setText(data_p_f.getExtras().getString("text_user_name_f").trim());
 
         Picasso.with(getApplicationContext())
-                .load("http://192.168.1.2/atfalna_app/img_found/" + simg)
+                .load("http://192.168.1.3/atfalna_app/img_found/" + simg)
                 .into(img_p_f);
 
         gloablV = (GloablV) getApplicationContext();
@@ -119,7 +126,7 @@ public class Post_found extends AppCompatActivity {
             if (S_lat_f.equals("") && S_lng_f.equals("")) {
                 tv_place_map1.setText("لم يتم التحديد");
             } else {
-                tv_place_map1.setText("رؤيت المكان");
+                tv_place_map1.setText("اضغط لرؤيت المكان");
             }
 
 
@@ -145,9 +152,8 @@ public class Post_found extends AppCompatActivity {
             Toast.makeText(getApplicationContext()," لم يتم تحديد المكان "+ ex, Toast.LENGTH_LONG).show();
         }
 
-
         get_comment_p_f();//1
-
+        get_a_like_f();
     }
 
 
@@ -214,7 +220,7 @@ public class Post_found extends AppCompatActivity {
     public void get_comment_p_f() {
         //show comment f
         final TextView tv_total_comm_f = findViewById(R.id.tv_total_comm_f);
-        String url_comm_f = "http://192.168.1.2/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
+        String url_comm_f = "http://192.168.1.3/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
 
         listcomment_f.clear();
@@ -320,6 +326,90 @@ public class Post_found extends AppCompatActivity {
         alert.setView(vComm);
         alert.show();
 
+    }
+
+
+
+    public void get_a_like_f() {
+        String url_get_like_f = "http://192.168.1.3/atfalna_app/show_like_f.php?code_p_f=" + S_code_p_f;
+        requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_get_like_f,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        StringBuilder text = new StringBuilder();
+
+                        try {
+                            JSONArray jsonArray_likes = response.getJSONArray("a_likes");
+                            tv_total_like_f.setText(String.valueOf(jsonArray_likes.length()));
+
+                            for (int i = 0; i < jsonArray_likes.length(); i++) {
+                                JSONObject respons = jsonArray_likes.getJSONObject(i);
+                                text.append(respons.getString("us_id"));
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(Post_found.this,"... خطا ..." +e, Toast.LENGTH_LONG).show();
+                        }
+
+                        if (text.toString().contains(S_user_id_login)) {
+                            img_like_f_1.setEnabled(false);
+                            img_like_f_1.setImageResource(R.drawable.ic_like2);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("VOLLEY", "ERROR");
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void btn_add_like_f(View view) {
+        RequestQueue queue = Volley.newRequestQueue(Post_found.this);
+        String url_add_Like = "http://192.168.1.3/atfalna_app/send_like_f.php?us_id_login="+S_user_id_login+"&code_p_f="+S_code_p_f ;
+        StringRequest request = new StringRequest(Request.Method.GET, url_add_Like, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    if (success) {
+                        Toast.makeText(Post_found.this, "شكرا على تضامنك", Toast.LENGTH_SHORT).show();
+                          img_like_f_1.setEnabled(false);
+                          img_like_f_1.setImageResource(R.drawable.ic_like2);
+                          get_a_like_f();
+                    } else {
+                        Toast.makeText(Post_found.this, "يوجد خطا ...", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(Post_found.this,"... خطا ..." +e, Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        queue.add(request);
+    }
+
+
+
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), All_P_F.class));
+        CustomIntent.customType(Post_found.this, "right-to-left");
     }
 
 }

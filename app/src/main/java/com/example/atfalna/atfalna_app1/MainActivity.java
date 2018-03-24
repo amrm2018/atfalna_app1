@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     GloablV gloablV;
 
-    String S_user_email, S_user_id, S_user_name ;
+    String S_user_email, S_user_id, S_user_name;
 
     String urlid;
 
-    String sip = "http://192.168.1.2" ;
+    String sip = "http://192.168.1.3";
 
     TextView textView_id, textView_email, textView_user_name;
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         gloablV.setIp_url(sip);
 
 
-        urlid = sip +"/atfalna_app/show_userid.php?useremail=" + S_user_email;
+        urlid = sip + "/atfalna_app/show_userid.php?useremail=" + S_user_email;
         get_userid();//خاص بانه يجيب ال id بتاع ال user اللى يدخل الapp
 
     }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder .setMessage("هل تريد الخروج ...")
+        builder.setMessage("هل تريد الخروج ...")
                 .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder .setMessage("هل تريد الخروج ...")
+        builder.setMessage("هل تريد الخروج ...")
                 .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

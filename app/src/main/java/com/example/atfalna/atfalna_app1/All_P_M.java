@@ -31,11 +31,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class All_P_M extends AppCompatActivity {
 
 
     RequestQueue requestQueue;
-    String url_all_m = "http://192.168.1.2/atfalna_app/show_all_post_missing.php";
+    String url_all_m = "http://192.168.1.3/atfalna_app/show_all_post_missing.php";
     ArrayList<listitem_m> listMissing = new ArrayList<listitem_m>();
     ListView listV_all_p_m;
     GloablV gloablV;
@@ -193,7 +195,7 @@ public class All_P_M extends AppCompatActivity {
             phone_m.setText(listM.get(i).phone_m);
 
             Picasso.with(getApplicationContext())
-                    .load("http://192.168.1.2/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
+                    .load("http://192.168.1.3/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
 
             listV_all_p_m.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -238,6 +240,7 @@ public class All_P_M extends AppCompatActivity {
                     openPost_m.putExtra("text_lng_p_m", listM.get(i).lng_m);
 
                     startActivity(openPost_m);
+                    CustomIntent.customType(All_P_M.this, "left-to-right");
 
                 }
             });

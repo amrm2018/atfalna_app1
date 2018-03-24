@@ -199,16 +199,16 @@ public class Create_P_M extends AppCompatActivity {
         Tv_show_lng_m =findViewById(R.id.tv_show_lng_m);
         Tv_show_lng_m.setText(gloablV.getLng_m());
 
-        imgb_add_place =findViewById(R.id.imgb_add_place_m);
-        imgb_done_place =findViewById(R.id.imgb_done_place_m);
-
-        if (Tv_show_lat_m.getText().toString().equals("") && Tv_show_lng_m.getText().toString().equals("")) {
-            imgb_add_place.setVisibility(View.VISIBLE);
-            imgb_done_place.setVisibility(View.INVISIBLE);
-        } else {
-            imgb_done_place.setVisibility(View.VISIBLE);
-            imgb_add_place.setVisibility(View.INVISIBLE);
-        }
+//        imgb_add_place =findViewById(R.id.imgb_add_place_m);
+//        imgb_done_place =findViewById(R.id.imgb_done_place_m);
+//
+//        if (Tv_show_lat_m.getText().toString().equals("") && Tv_show_lng_m.getText().toString().equals("")) {
+//            imgb_add_place.setVisibility(View.VISIBLE);
+//            imgb_done_place.setVisibility(View.INVISIBLE);
+//        } else {
+//            imgb_done_place.setVisibility(View.VISIBLE);
+//            imgb_add_place.setVisibility(View.INVISIBLE);
+//        }
 
     }
 
@@ -368,5 +368,11 @@ public class Create_P_M extends AppCompatActivity {
     public void go_select_place_m(View view) {
         startActivity( new Intent(getApplicationContext() , Create_P_M_Map.class));
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        CustomIntent.customType(Create_P_M.this, "right-to-left");
     }
 }

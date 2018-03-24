@@ -1,7 +1,9 @@
 package com.example.atfalna.atfalna_app1;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -40,15 +42,15 @@ public class Create_P_F extends AppCompatActivity {
     EditText ED_day, ED_year, ED_phone, ED_place_the_case, ED_info_the_case;
     Spinner SP_month, SP_city;
     RadioButton RD_male, RD_female;
-    TextView TV_show_month, TV_show_City, TV_show_user_email, tv_show_user_name_f, tv_show_user_id_f ,
-    Tv_show_lat_f , Tv_show_lng_f ;
+    TextView TV_show_month, TV_show_City, TV_show_user_email, tv_show_user_name_f, tv_show_user_id_f,
+            Tv_show_lat_f, Tv_show_lng_f;
     GloablV gloablV;
 
     // send image
     ImageView imgV_f;
-    String encodeimg_f  , S_user_id ;
+    String encodeimg_f, S_user_id;
 
-    ImageButton imgb_add_place ,imgb_done_place ;
+    ImageButton imgb_add_place, imgb_done_place;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -118,14 +120,14 @@ public class Create_P_F extends AppCompatActivity {
         //-- send image
         imgV_f = findViewById(R.id.img_post_found);
 
-        Tv_show_lat_f =findViewById(R.id.tv_show_lat_f);
+        Tv_show_lat_f = findViewById(R.id.tv_show_lat_f);
         Tv_show_lat_f.setText(gloablV.getLat_f());
 
-        Tv_show_lng_f =findViewById(R.id.tv_show_lng_f);
+        Tv_show_lng_f = findViewById(R.id.tv_show_lng_f);
         Tv_show_lng_f.setText(gloablV.getLng_f());
 
-        imgb_add_place =findViewById(R.id.imgb_add_place);
-        imgb_done_place =findViewById(R.id.imgb_done_place);
+        imgb_add_place = findViewById(R.id.imgb_add_place);
+        imgb_done_place = findViewById(R.id.imgb_done_place);
 
         if (Tv_show_lat_f.getText().toString().equals("") && Tv_show_lng_f.getText().toString().equals("")) {
             imgb_add_place.setVisibility(View.VISIBLE);
@@ -134,7 +136,6 @@ public class Create_P_F extends AppCompatActivity {
             imgb_done_place.setVisibility(View.VISIBLE);
             imgb_add_place.setVisibility(View.INVISIBLE);
         }
-
 
 
     }
@@ -179,10 +180,8 @@ public class Create_P_F extends AppCompatActivity {
         String User_name_f = tv_show_user_name_f.getText().toString().trim();
 
 
-
-        String Lat_f =Tv_show_lat_f.getText().toString().trim();
-        String Lng_f =Tv_show_lng_f.getText().toString().trim();
-
+        String Lat_f = Tv_show_lat_f.getText().toString().trim();
+        String Lng_f = Tv_show_lng_f.getText().toString().trim();
 
 
         if (Day.isEmpty()) {
@@ -199,12 +198,10 @@ public class Create_P_F extends AppCompatActivity {
             ED_place_the_case.setError("أكتب مكان الحالة بالتفصيل");
             ED_place_the_case.requestFocus();
             dialog.dismiss();
-        }
-        else if (imgV_f.getDrawable() == null) {
+        } else if (imgV_f.getDrawable() == null) {
             Toast.makeText(getApplicationContext(), "أختار صورة للحالة", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
-        }
-        else {
+        } else {
             Response.Listener<String> responseLisener_p_f = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -268,7 +265,13 @@ public class Create_P_F extends AppCompatActivity {
     }
 
     public void go_select_place_f(View view) {
-        startActivity( new Intent(getApplicationContext() , Create_P_F_Map.class));
+        startActivity(new Intent(getApplicationContext(), Create_P_F_Map.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        CustomIntent.customType(Create_P_F.this, "right-to-left");
 
     }
 }

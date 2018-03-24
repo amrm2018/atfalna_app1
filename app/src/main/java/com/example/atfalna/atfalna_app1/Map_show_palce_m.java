@@ -1,5 +1,6 @@
 package com.example.atfalna.atfalna_app1;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -42,18 +43,26 @@ public class Map_show_palce_m extends FragmentActivity implements OnMapReadyCall
         lat_m = Double.valueOf(slat);
         lng_m = Double.valueOf(slng);
 
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        if (lat_m != null && lng_m != null){
+            mMap.getUiSettings().setZoomControlsEnabled(true);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(lat_m, lng_m);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("مكان الحالة"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+            // Add a marker in Sydney and move the camera
+            LatLng sydney = new LatLng(lat_m, lng_m);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("مكان الحالة"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
 
-        CameraPosition cp =CameraPosition.builder().target(sydney).zoom(11).bearing(90).build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp),2000 ,null);
+            CameraPosition cp =CameraPosition.builder().target(sydney).zoom(11).bearing(90).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp),2000 ,null);
 
-        mMap.addCircle(new CircleOptions()
-                .center(sydney).radius(1500).strokeColor(R.color.colorRed).fillColor(R.color.colorLightBlue) );
+            mMap.addCircle(new CircleOptions()
+                    .center(sydney).radius(1500).strokeColor(R.color.colorRed).fillColor(R.color.colorLightBlue) );
+
+        } else {
+            AlertDialog.Builder builder =new AlertDialog.Builder(Map_show_palce_m.this);
+
+            builder.setTitle("لم يتم تحديد المكان").show();
+        }
+
 
     }
 }
