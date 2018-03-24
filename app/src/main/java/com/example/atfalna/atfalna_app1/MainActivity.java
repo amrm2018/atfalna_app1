@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView_email=findViewById(R.id.tv_show_email_main);
+       // textView_email=findViewById(R.id.tv_show_email_main);
 
-        textView_id=findViewById(R.id.tv_show_id_main);
-        textView_user_name=findViewById(R.id.tv_show_user_name_main);
+       // textView_id=findViewById(R.id.tv_show_id_main);
+        textView_user_name=findViewById(R.id.tv_user_name);
 
         gloablV = (GloablV)getApplicationContext();
         S_user_email = gloablV.getEmail_user_login();
