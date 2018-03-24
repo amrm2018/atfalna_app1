@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.atfalna.atfalna_app1.Post_Missing">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/img_m"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/select_image2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_code_post_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text=""
+                            android:visibility="invisible"/>
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_user"
+                            android:layout_width="50dp"
+                            android:layout_height="45dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/logo_atfalna"
+                            app:civ_border_color="#5c66c7"
+                            app:civ_border_width="1dp" />
+
+                        <TextView
+                            android:id="@+id/tv_user_name_p_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_toLeftOf="@id/img_user"
+                            android:text="user_name"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/ic_date"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_below="@id/tv_user_name_p_m"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toLeftOf="@id/img_user"
+                            android:src="@drawable/ic_date_2" />
+
+                        <TextView
+                            android:id="@+id/tv_date_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_user_name_p_m"
+                            android:layout_marginRight="3dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_toLeftOf="@id/ic_date"
+                            android:text="20/02/2018"
+                            android:textColor="#000" />
+
+
+                        <ImageView
+                            android:id="@+id/ic_time_m"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/img_user"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_time_p" />
+
+                        <TextView
+                            android:id="@+id/tv_time_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img_user"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toLeftOf="@id/ic_map"
+                            android:text="10:20 pm"
+                            android:textColor="#000000" />
+
+                        <ImageView
+                            android:id="@+id/ic_map"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/ic_time_m"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_city_p" />
+
+                        <TextView
+                            android:id="@+id/tv_city_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ic_time_m"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toLeftOf="@id/ic_map"
+                            android:text="القاهرة"
+                            android:textColor="#000" />
+
+                        <ImageView
+                            android:id="@+id/ic_money"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/ic_map"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_money" />
+
+                        <TextView
+                            android:id="@+id/tv_bonus_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ic_map"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_toLeftOf="@id/ic_money"
+                            android:text="1000"
+                            android:textColor="#000" />
+
+                        <ImageView
+                            android:id="@+id/ic_phone"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/ic_money"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_phone_p" />
+
+                        <TextView
+                            android:id="@+id/tv_phone_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ic_money"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_toLeftOf="@id/ic_phone"
+                            android:text="11111111111"
+                            android:textColor="#000" />
+
+                        <ImageView
+                            android:id="@+id/ic_gender_m"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/ic_phone"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_gender_p" />
+
+                        <TextView
+                            android:id="@+id/tv_gender_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ic_phone"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_toLeftOf="@id/ic_phone"
+                            android:text="ذكر"
+                            android:textColor="#000" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/r2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:id="@+id/tv_year_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/tv_month_m"
+                        android:text="2018"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_month_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="يناير"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_day_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="20"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/title1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="تاريخ فقدان الحالة : "
+                        android:textColor="#d0000000" />
+
+                    <ImageView
+                        android:id="@+id/ic_date_f"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_date_2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:gravity="center_vertical|right">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="العمر الان"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_age_now_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="اسم الدلع(الشهرة)"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_nickname_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="لا يوجد"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="اسم الحالة"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_case_name_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="محمد ممدوح"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="لون العين"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_color_eye_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="اسود"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="لون الشعر"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_color_hair_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="اسود"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="لون البشرة"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_color_body_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="اسود"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="طول الحالة بين"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_length_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="40-60"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="وزن الحالة بين"
+                            android:textColor="#658ad9" />
+
+                        <TextView
+                            android:id="@+id/tv_wiegth_m"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10-25"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/r4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/r3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f">
+
+                    <ImageView
+                        android:id="@+id/ic_map_f"
+                        android:layout_width="20dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_place_p" />
+
+
+                    <TextView
+                        android:id="@+id/title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/ic_map_f"
+                        android:text="عنوان الحالة :  "
+                        android:textColor="#d0000000" />
+
+                    <TextView
+                        android:id="@+id/tv_address_m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="2dp"
+                        android:layout_toLeftOf="@id/title2"
+                        android:gravity="right"
+                        android:maxLines="2"
+                        android:text="موجود في ميدان الجيزة عن محل باتا"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/style_rel_p_f">
+
+                    <ImageView
+                        android:id="@+id/img_map"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_place_p" />
+
+                    <TextView
+                        android:id="@+id/title6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/img_map"
+                        android:text="مكان الحالة على الخريطة : "
+                        android:textColor="#c6000000" />
+
+                    <TextView
+                        android:id="@+id/tv_place_map_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/title6"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:maxLines="1"
+                        android:text="لم يتم التحديد"
+                        android:textColor="#f12020"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/r5"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:paddingLeft="5dp"
+                    android:minHeight="40dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/img_info_f"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_note_p" />
+
+                    <TextView
+                        android:id="@+id/title3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/img_info_f"
+                        android:text="معلومات"
+                        android:textColor="#d0000000" />
+
+                        <TextView
+                            android:id="@+id/tv_note_m"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right|center"
+                            android:maxLines="5"
+                            android:padding="2dp"
+                            android:text=" قاعد في الشارع و بشوف كتير جدا هناك تقربيا كل"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:layout_toLeftOf="@+id/title3"/>
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/style_rel_p_f"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="1dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_share_p" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="btn_show_comm_m_in_alert"
+                            android:padding="1dp">
+
+                            <TextView
+                                android:id="@+id/tv_total_comm_m"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLength="4"
+                                android:text="0" />
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_comment_p" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lin_like_f"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="1dp">
+
+                            <TextView
+                                android:id="@+id/tv_total_like_f"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLength="4"
+                                android:text="0" />
+
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_like1" />
+
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/ed_comment_p_m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="8dp"
+                        android:hint="كتابة تعليق"
+                        android:maxLines="3"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:background="@drawable/style_btn_comment"
+                        android:text="ارسال التعليق"
+                        android:textColor="#fff"
+                        android:onClick="btn_send_comment_p_m"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

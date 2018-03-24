@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#dee6e3e9">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/tv_code_post_f_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:visibility="invisible"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_user"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/logo_atfalna"
+                app:civ_border_color="#5c66c7"
+                app:civ_border_width="1dp" />
+
+            <TextView
+                android:id="@+id/tv_user_name_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/img_user"
+                android:text="user_name"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/ic_map"
+                android:src="@drawable/ic_map"
+                android:layout_toLeftOf="@id/tv_user_name_m"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="15dp"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/ic_date"
+                android:src="@drawable/ic_date"
+                android:layout_toLeftOf="@id/img_user"
+                android:layout_below="@id/tv_user_name_m"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_date_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_user_name_m"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/ic_date"
+                android:text="20/02/2018" />
+
+            <TextView
+                android:id="@+id/tv_city_f_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/ic_map"
+                android:text="القاهرة"
+                android:textColor="#243ae6" />
+
+            <ImageView
+                android:id="@+id/img_f_list"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_date_m"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginLeft="60dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/select_image2" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

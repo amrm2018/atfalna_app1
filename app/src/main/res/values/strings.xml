@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">atfalna_app1</string>
+
+
+    <string-array name="spinner_month">
+        <item>يناير</item>
+        <item>فبراير</item>
+        <item>مارس</item>
+        <item>ابريل</item>
+        <item>مايو</item>
+        <item> يونيو</item>
+        <item> يوليو</item>
+        <item>أغسطس</item>
+        <item>ستمبر</item>
+        <item>أكتوبر</item>
+        <item>نوفبمر</item>
+        <item>ديسمبر</item>
+
+    </string-array>
+
+    <string-array name="spinner_city">
+
+        <item>القاهرة</item>
+        <item>الجيزة</item>
+        <item>الشرقية</item>
+        <item>الدقهلية</item>
+        <item>البحيرة</item>
+        <item> المنيا</item>
+        <item>القلوبية</item>
+        <item> الاسكندرية</item>
+        <item> الغربية</item>
+        <item>سوهاج</item>
+        <item>اسيوط</item>
+        <item>المنوفية</item>
+        <item>كفر الشيخ</item>
+        <item>الفيوم</item>
+        <item>قنا</item>
+        <item>بني سويف</item>
+        <item>اسوان</item>
+        <item>دمياط</item>
+        <item>الاسماعيلية</item>
+        <item>الاقصر</item>
+        <item>بورسعيد</item>
+        <item>السويس</item>
+        <item>مطروح</item>
+        <item>الوادى الجديد</item>
+        <item>البحر الاحمر</item>
+        <item>شمال سيناء</item>
+        <item>جنوب سيناء</item>
+
+    </string-array>
+
+
+    <string-array name="spinner_color_eye">
+        <item>اسود</item>
+        <item>اخضر</item>
+        <item>بنى</item>
+        <item>ازرق</item>
+    </string-array>
+
+    <string-array name="spinner_color_hair">
+        <item>اسود</item>
+        <item>اصفر</item>
+        <item>بنى</item>
+        <item>ابيض</item>
+    </string-array>
+
+    <string-array name="spinner_color_body">
+        <item>اسود</item>
+        <item>قمحى</item>
+        <item>ابيض</item>
+    </string-array>
+
+    <string-array name="spinner_hength">// الطول - كل 25 سم
+        <item>25-50</item>
+        <item>51-75</item>
+        <item>76-100</item>
+        <item>101-125</item>
+        <item>126-150</item>
+        <item>151-175</item>
+        <item>176-200</item>
+        <item>201-225</item>
+    </string-array>
+
+    <string-array name="spinner_wiegth">// الوزن - كل 10 كليو
+        <item>5-9</item>
+        <item>10-25</item>
+        <item>26-40</item>
+        <item>41-60</item>
+        <item>61-75</item>
+        <item>76-90</item>
+        <item>91-105</item>
+        <item>106-120</item>
+        <item>121-200</item>
+    </string-array>
+
+    <string name="title_activity_create__p__f__map">Map</string>
+    <string name="title_activity_map_show_palce_f">Map</string>
+    <string name="title_activity_create__p__m__map">Map</string>
+
+
+</resources>

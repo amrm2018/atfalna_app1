@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.atfalna.atfalna_app1.MainActivity"
+    android:background="@drawable/bg_main" >
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_logout"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="btn_Logout"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/img_profile"
+        android:src="@drawable/ic_profile2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:onClick="go_profil"
+        />
+
+    <TextView
+        android:id="@+id/tv_show_email_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:text=""
+        android:textSize="14sp"
+        android:textColor="#000"
+        android:background="#68a562ae"/>
+
+    <TextView
+        android:id="@+id/tv_show_id_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:text=""
+        android:textSize="14sp"
+        android:textColor="#000"
+        android:background="#62000fff"/>
+
+    <TextView
+        android:id="@+id/tv_show_user_name_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/img_profile"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:text=""
+        android:textSize="14sp"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id="@+id/tv_show_f"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="106dp"
+        android:onClick="go_all_p_f"
+         />
+
+    <TextView
+        android:id="@+id/tv_show_m"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+
+        android:layout_below="@+id/tv_show_f"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="27dp"
+        android:layout_toEndOf="@+id/tv_show_f"
+        android:onClick="go_all_p_m"/>
+
+    <TextView
+        android:id="@+id/tv_create_f"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_alignEnd="@+id/tv_show_m"
+        android:layout_below="@+id/tv_show_m"
+        android:layout_marginTop="67dp"
+        android:onClick="go_create_p_f"/>
+
+    <TextView
+        android:id="@+id/tv_create_m"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_alignStart="@+id/tv_show_f"
+        android:layout_below="@+id/tv_create_f"
+        android:layout_marginTop="21dp"
+        android:onClick="go_create_p_m"/>
+
+
+</RelativeLayout>

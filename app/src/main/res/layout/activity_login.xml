@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.atfalna.atfalna_app1.Login"
+    android:background="@color/colorLightBlue">
+
+
+    <ImageView
+        android:id="@+id/img_1"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo_pro" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/img_1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="#ffffff"
+                android:id="@+id/cardView">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rel_1"
+                    android:layout_margin="5dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ed_email_log2"
+                        android:hint="البريد الالكتروني"
+                        app:met_floatingLabel="highlight"
+                        android:textColorHint="#000"
+                        android:textColor="#000"
+                        app:met_textColorHint="#000"
+                        android:textSize="14sp"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="2dp"
+                        app:met_iconLeft="@drawable/ic_email_black"
+                        android:drawableLeft="@drawable/ic_email_black"
+                        android:maxLines="1"
+                        android:inputType="textWebEmailAddress"
+                        android:gravity="center_vertical|left"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ed_pass_log2"
+                        android:layout_below="@id/ed_email_log2"
+                        android:hint="الرقم السري"
+                        app:met_floatingLabel="highlight"
+                        android:textColorHint="#000"
+                        android:textColor="#000"
+                        app:met_textColorHint="#000"
+                        android:textSize="14sp"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="2dp"
+                        app:met_iconLeft="@drawable/ic_email_black"
+                        android:drawableLeft="@drawable/ic_lock_black"
+                        android:maxLines="1"
+                        android:inputType="numberPassword"
+                        android:gravity="center_vertical|left"
+                        />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chk_remember"
+                        android:layout_below="@id/ed_pass_log2"
+                        android:text="تذكرنى"
+                        android:checked="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="14sp"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_login2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/cardView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/styel_btn_login"
+                android:text="دخول"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:onClick="Login_btn_Login"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@id/btn_login2"
+                android:layout_gravity="left"
+                android:layout_toRightOf="@id/tv_or"
+                android:text="ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ"
+                android:textColor="#fff"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_login2"
+                android:id="@+id/tv_or"
+                android:text="ليس لديك حساب"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@id/btn_login2"
+                android:layout_toLeftOf="@id/tv_or"
+                android:text="ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ"
+                android:textColor="#fff"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/btn_go_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/tv_or"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/styel_btn_register"
+                android:text="أشتراك جديد"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:onClick="go_registration"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
+
+
+
+
