@@ -1,6 +1,8 @@
 package com.example.atfalna.atfalna_app1;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import maes.tech.intentanim.CustomIntent;
 
 public class Login extends AppCompatActivity {
 
@@ -85,7 +89,6 @@ public class Login extends AppCompatActivity {
                         jsonObject = new JSONObject(response);
                         boolean success = jsonObject.getBoolean("success");
                         if (success) {
-                            Toast.makeText(Login.this, "تم تسجيل الدخول", Toast.LENGTH_SHORT).show();
                             gloablV.setEmail_user_login(Log_in_email);
                             if (chk_remember.isChecked()) {
                                 getSharedPreferences("MyPref1", MODE_PRIVATE)
@@ -101,7 +104,7 @@ public class Login extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_LONG).show();
                         dialog.dismiss();
                     }
                 }
@@ -128,6 +131,23 @@ public class Login extends AppCompatActivity {
 
     public void go_registration(View view) {
         startActivity(new Intent(getApplicationContext(), Registration.class));
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        Login_email.requestFocus();
+
+//        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+//
+//        builder .setMessage("هل تريد الخروج ...")
+//                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                    }
+//                }).setNegativeButton(" لا", null).show();
     }
 
 

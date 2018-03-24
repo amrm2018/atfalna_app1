@@ -97,6 +97,7 @@
     <string name="title_activity_create__p__f__map">Map</string>
     <string name="title_activity_map_show_palce_f">Map</string>
     <string name="title_activity_create__p__m__map">Map</string>
+    <string name="title_activity_map_show_palce_m">Map</string>
 
 
 </resources>

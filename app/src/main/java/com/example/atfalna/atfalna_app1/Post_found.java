@@ -94,10 +94,8 @@ public class Post_found extends AppCompatActivity {
         tv_place.setText(data_p_f.getExtras().getString("text_place_case_f"));
         tv_info.setText(data_p_f.getExtras().getString("text_info_case_f").trim());
 
-
         S_lat_f = data_p_f.getExtras().getString("text_lat_f");
         S_lng_f = data_p_f.getExtras().getString("text_lng_f");
-
 
         String simg = data_p_f.getExtras().getString("text_img_f");
 
@@ -105,9 +103,8 @@ public class Post_found extends AppCompatActivity {
         // S_user_name= data_p_f.getExtras().getString("text_user_name_f");
         tv_user_name_f.setText(data_p_f.getExtras().getString("text_user_name_f").trim());
 
-
         Picasso.with(getApplicationContext())
-                .load("http://192.168.1.4/atfalna_app/img_found/" + simg)
+                .load("http://192.168.1.2/atfalna_app/img_found/" + simg)
                 .into(img_p_f);
 
         gloablV = (GloablV) getApplicationContext();
@@ -118,11 +115,13 @@ public class Post_found extends AppCompatActivity {
         ed_comm_p_f = findViewById(R.id.ed_comment_p_f);
 
         try{
+
             if (S_lat_f.equals("") && S_lng_f.equals("")) {
                 tv_place_map1.setText("لم يتم التحديد");
             } else {
                 tv_place_map1.setText("رؤيت المكان");
             }
+
 
             tv_place_map1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -131,12 +130,12 @@ public class Post_found extends AppCompatActivity {
                     if (S_lat_f.equals("") && S_lng_f.equals("")) {
                         Toast.makeText(getApplicationContext(), " لم يتم تحديد المكان ", Toast.LENGTH_LONG).show();
                     } else {
-                        Intent Inshow_map = new Intent(getApplicationContext(), Map_show_palce_f.class);
+                        Intent Inshow_map_f = new Intent(getApplicationContext(), Map_show_palce_f.class);
 
-                        Inshow_map.putExtra("key_show_lat_f", S_lat_f);
-                        Inshow_map.putExtra("key_show_lng_f", S_lng_f);
+                        Inshow_map_f.putExtra("key_show_lat_f", S_lat_f);
+                        Inshow_map_f.putExtra("key_show_lng_f", S_lng_f);
 
-                        startActivity(Inshow_map);
+                        startActivity(Inshow_map_f);
                     }
 
                 }
@@ -147,9 +146,11 @@ public class Post_found extends AppCompatActivity {
         }
 
 
-        get_comment_p_f();
+        get_comment_p_f();//1
 
     }
+
+
 
     // Send_Data_Comment_to_Serveries
     ProgressDialog pDialog_send_comm;
@@ -213,7 +214,7 @@ public class Post_found extends AppCompatActivity {
     public void get_comment_p_f() {
         //show comment f
         final TextView tv_total_comm_f = findViewById(R.id.tv_total_comm_f);
-        String url_comm_f = "http://192.168.1.4/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
+        String url_comm_f = "http://192.168.1.2/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
 
         listcomment_f.clear();
@@ -253,12 +254,6 @@ public class Post_found extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
         // end comment
     }
-
-//    public void listData_comm_f() {
-//        ListAdapter_comm ad_comm = new ListAdapter_comm(listcomment_f);
-//        listV_comm_p_f.setAdapter(ad_comm);
-//    }
-
 
     public void listData_comm_f_alert() {
         ListAdapter_comm ad_comm = new ListAdapter_comm(listcomment_f);
@@ -311,13 +306,7 @@ public class Post_found extends AppCompatActivity {
         }
     }
 
-    ProgressDialog pdialog_comm;
-
     public void btn_show_comm_f_in_alert(View v) {
-
-        pdialog_comm = new ProgressDialog(Post_found.this);
-        pdialog_comm.show();
-        pdialog_comm.setMessage("لحظة و ستظهر التعليقات");
 
         LayoutInflater layoutInflater = LayoutInflater.from(Post_found.this);
         View vComm = layoutInflater.inflate(R.layout.itme_alertdialog_comment, null);
@@ -329,7 +318,6 @@ public class Post_found extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(Post_found.this);
         alert.setCancelable(true);
         alert.setView(vComm);
-        pdialog_comm.dismiss();
         alert.show();
 
     }

@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.atfalna.atfalna_app1.Post_Missing">
+    tools:context="com.example.atfalna.atfalna_app1.Post_Missing"
+    android:background="#fff">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,7 +34,8 @@
                         android:id="@+id/img_m"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/select_image2" />
+                        android:src="@drawable/image_p"
+                        android:background="#fff"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -52,7 +55,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
                             android:text=""
-                            android:visibility="invisible"/>
+                            />
 
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -535,8 +538,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
-                    android:padding="5dp"
-                    android:background="@drawable/style_rel_p_f">
+                    android:background="@drawable/style_rel_p_f"
+                    android:padding="5dp">
 
                     <ImageView
                         android:id="@+id/img_map"
@@ -561,11 +564,11 @@
                         android:id="@+id/tv_place_map_m"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toLeftOf="@+id/title6"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/title6"
                         android:maxLines="1"
-                        android:text="لم يتم التحديد"
+                        android:text="* لم يتم التحديد *"
                         android:textColor="#f12020"
                         android:textStyle="bold" />
 
@@ -579,9 +582,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/style_rel_p_f"
-                    android:paddingLeft="5dp"
                     android:minHeight="40dp"
-                    >
+                    android:paddingLeft="5dp">
 
                     <ImageView
                         android:id="@+id/img_info_f"
@@ -602,18 +604,17 @@
                         android:text="معلومات"
                         android:textColor="#d0000000" />
 
-                        <TextView
-                            android:id="@+id/tv_note_m"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="right|center"
-                            android:maxLines="5"
-                            android:padding="2dp"
-                            android:text=" قاعد في الشارع و بشوف كتير جدا هناك تقربيا كل"
-                            android:textColor="#000"
-                            android:textStyle="bold"
-                            android:layout_toLeftOf="@+id/title3"/>
-
+                    <TextView
+                        android:id="@+id/tv_note_m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/title3"
+                        android:gravity="right|center"
+                        android:maxLines="5"
+                        android:padding="2dp"
+                        android:text=" قاعد في الشارع و بشوف كتير جدا هناك تقربيا كل"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
 
 
                 </RelativeLayout>
@@ -691,7 +692,6 @@
                                 android:src="@drawable/ic_like1" />
 
 
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -700,18 +700,18 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/ed_comment_p_m"
+                        android:id="@+id/ed_comment_p_m1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
+                        android:layout_margin="5dp"
                         android:layout_marginEnd="8dp"
                         android:hint="كتابة تعليق"
                         android:maxLines="3"
-                        android:layout_margin="5dp"
                         android:padding="10dp"
                         android:textColor="#000"
                         android:textColorHint="#000" />
@@ -719,12 +719,13 @@
                     <Button
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_gravity="center"
                         android:background="@drawable/style_btn_comment"
+                        android:gravity="center"
+                        android:onClick="btn_send_comment_p_m1"
                         android:text="ارسال التعليق"
                         android:textColor="#fff"
-                        android:onClick="btn_send_comment_p_m"/>
+                        android:layout_marginBottom="20dp"/>
 
                 </LinearLayout>
 

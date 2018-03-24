@@ -1,9 +1,6 @@
 package com.example.atfalna.atfalna_app1;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -16,25 +13,25 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map_show_palce_f extends FragmentActivity implements OnMapReadyCallback {
+public class Map_show_palce_m extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
-    Double lat, lng;
+    Double lat_m, lng_m;
     String slat, slng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map_show_palce_f);
+        setContentView(R.layout.activity_map_show_palce_m);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         Intent intent = getIntent();
-        slat = intent.getExtras().getString("key_show_lat_f");
-        slng = intent.getExtras().getString("key_show_lng_f");
+        slat = intent.getExtras().getString("key_show_lat_m");
+        slng = intent.getExtras().getString("key_show_lng_m");
 
     }
 
@@ -42,23 +39,21 @@ public class Map_show_palce_f extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-        lat = Double.valueOf(slat);
-        lng = Double.valueOf(slng);
+        lat_m = Double.valueOf(slat);
+        lng_m = Double.valueOf(slng);
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        LatLng place_p_m = new LatLng(lat, lng);
-        mMap.addMarker(new MarkerOptions().position(place_p_m).title("مكان الحالة"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place_p_m, 5));
+        LatLng sydney = new LatLng(lat_m, lng_m);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("مكان الحالة"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
 
-        CameraPosition cp =CameraPosition.builder().target(place_p_m).zoom(11).bearing(90).build();
-         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp),2000 ,null);
+        CameraPosition cp =CameraPosition.builder().target(sydney).zoom(11).bearing(90).build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp),2000 ,null);
 
-         mMap.addCircle(new CircleOptions()
-         .center(place_p_m).radius(1500).strokeColor(R.color.colorRed).fillColor(R.color.colorLightBlue) );
-
+        mMap.addCircle(new CircleOptions()
+                .center(sydney).radius(1500).strokeColor(R.color.colorRed).fillColor(R.color.colorLightBlue) );
 
     }
 }

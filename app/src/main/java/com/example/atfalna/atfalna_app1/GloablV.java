@@ -79,6 +79,17 @@ public class GloablV extends Application {
         this.email_user_login = email_user_login;
     }
 
+    private String ip_url ;
+
+
+
+    public String getIp_url() {
+        return ip_url;
+    }
+
+    public void setIp_url(String ip_url) {
+        this.ip_url = ip_url;
+    }
 
 
 

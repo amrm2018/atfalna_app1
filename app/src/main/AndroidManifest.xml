@@ -75,7 +75,10 @@
             android:label="@string/title_activity_map_show_palce_f" />
         <activity
             android:name=".Create_P_M_Map"
-            android:label="@string/title_activity_create__p__m__map"></activity>
+            android:label="@string/title_activity_create__p__m__map" />
+        <activity
+            android:name=".Map_show_palce_m"
+            android:label="@string/title_activity_map_show_palce_m"></activity>
     </application>
 
 </manifest>

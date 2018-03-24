@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     GloablV gloablV;
 
-    String S_user_email, S_user_id, S_user_name;
+    String S_user_email, S_user_id, S_user_name ;
 
     String urlid;
+
+    String sip = "http://192.168.1.2" ;
 
     TextView textView_id, textView_email, textView_user_name;
 
@@ -46,12 +48,15 @@ public class MainActivity extends AppCompatActivity {
         // textView_id=findViewById(R.id.tv_show_id_main);
         textView_user_name = findViewById(R.id.tv_user_name);
 
+
         gloablV = (GloablV) getApplicationContext();
         S_user_email = gloablV.getEmail_user_login();
         //textView_email.setText(gloablV.getEmail_user_login());
 
+        gloablV.setIp_url(sip);
 
-        urlid = "http://192.168.1.2/atfalna_app/show_userid.php?useremail=" + S_user_email;
+
+        urlid = sip +"/atfalna_app/show_userid.php?useremail=" + S_user_email;
         get_userid();//خاص بانه يجيب ال id بتاع ال user اللى يدخل الapp
 
     }
@@ -92,9 +97,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btn_Logout(View view) {
-        getSharedPreferences("MyPref1", MODE_PRIVATE).edit().clear().commit();
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        CustomIntent.customType(MainActivity.this, "right-to-left");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        builder .setMessage("هل تريد الخروج ...")
+                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        getSharedPreferences("MyPref1", MODE_PRIVATE).edit().clear().commit();
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+
+                        CustomIntent.customType(MainActivity.this, "right-to-left");
+                    }
+                }).setNegativeButton(" لا سابقي..", null).show();
     }
 
     public void go_create_p_f(View view) {
@@ -103,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         gloablV.setLng_f("");
 
         startActivity(new Intent(getApplicationContext(), Create_P_F.class));
-        CustomIntent.customType(MainActivity.this, "bottom-to-up");
+        CustomIntent.customType(MainActivity.this, "left-to-right");
 
     }
 
@@ -112,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         gloablV.setLat_m("");
         gloablV.setLng_m("");
         startActivity(new Intent(getApplicationContext(), Create_P_M.class));
-        CustomIntent.customType(MainActivity.this, "bottom-to-up");
+        CustomIntent.customType(MainActivity.this, "left-to-right");
     }
 
     public void go_all_p_f(View view) {
@@ -127,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void go_profil(View view) {
         startActivity(new Intent(getApplicationContext(), Profile.class));
-        CustomIntent.customType(MainActivity.this, "up-to-bottom");
+        CustomIntent.customType(MainActivity.this, "left-to-right");
     }
 
     @Override

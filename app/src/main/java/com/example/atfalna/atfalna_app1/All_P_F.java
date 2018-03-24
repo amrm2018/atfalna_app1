@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class All_P_F extends AppCompatActivity {
 
     RequestQueue requestQueue;
-    String url = "http://192.168.1.4/atfalna_app/show_all_post_found.php";
+    String url = "http://192.168.1.2/atfalna_app/show_all_post_found.php";
     ArrayList<listitem_f> listMovis = new ArrayList<listitem_f>();
     ListView listV_all_p_f ;
     GloablV gloablV;
@@ -165,7 +165,7 @@ public class All_P_F extends AppCompatActivity {
             date_p_f.setText(listA.get(i).date_p_f);
 
             Picasso.with(getApplicationContext())
-                    .load("http://192.168.1.4/atfalna_app/img_found/" + listA
+                    .load("http://192.168.1.2/atfalna_app/img_found/" + listA
                     .get(i).img_f)
                     .into(imgfound);
 
@@ -223,7 +223,7 @@ public class All_P_F extends AppCompatActivity {
                         show_all_p_f();
                        // startActivity(new Intent(getApplicationContext(), All_P_F.class));
                     }
-                }, 2000);
+                }, 1000);
             }
         });
 

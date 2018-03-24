@@ -32,16 +32,16 @@ import java.util.ArrayList;
 
 public class Post_Missing extends AppCompatActivity {
 
-    TextView tv_user_name_m, tv_date_m, tv_time_m, tv_city_m, tv_bonus_m,
+    TextView tv_code_post_m, tv_user_name_m, tv_date_m, tv_time_m, tv_city_m, tv_bonus_m,
             tv_phone_m, tv_gender_m, tv_day_m, tv_month_m, tv_year_m,
             tv_case_name_m, tv_nickname_m, tv_age_now_m, tv_color_body_m, tv_color_hair_m,
-            tv_color_eye_m, tv_wiegth_m, tv_length_m, tv_address_m, tv_note_m ,
-            tv_place_map_m ;
+            tv_color_eye_m, tv_wiegth_m, tv_length_m, tv_address_m, tv_note_m,
+            tv_place_map_m;
 
-    ImageView img_p_m ;
+    ImageView img_p_m;
 
-    GloablV gloablV ;
-    String S_code_p_m ,S_user_id_m , S_user_id_login , S_user_name_login ;
+    GloablV gloablV;
+    String S_code_p_m, S_user_id_m, S_user_id_login, S_user_name_login  , sip ;
 
     // من هنا الجزء الخاص بالتعليقات
     RequestQueue requestQueue;
@@ -49,8 +49,8 @@ public class Post_Missing extends AppCompatActivity {
     ArrayList<listitem_comm_m> listcomment_m = new ArrayList<listitem_comm_m>();
     ListView listV_comm_m_alert;
 
-    String S_lat_m, S_lng_m ;
-    EditText ed_comm_p_m ;
+    String S_lat_m, S_lng_m;
+    EditText ed_comm_p_m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,8 @@ public class Post_Missing extends AppCompatActivity {
 
         Intent data_p_m = getIntent();
 
-        S_code_p_m=data_p_m.getExtras().getString("text_code_p_m");
+        tv_code_post_m.setText(data_p_m.getExtras().getString("text_code_m"));
+        S_code_p_m = data_p_m.getExtras().getString("text_code_m");
         tv_user_name_m.setText(data_p_m.getExtras().getString("text_user_name_m"));
         tv_date_m.setText(data_p_m.getExtras().getString("text_date_m"));
         tv_time_m.setText(data_p_m.getExtras().getString("text_time_m"));
@@ -90,10 +91,8 @@ public class Post_Missing extends AppCompatActivity {
         tv_note_m.setText(data_p_m.getExtras().getString("text_note_m"));
 
 
-
-        String slat_m = data_p_m.getExtras().getString("text_lat_m");
-        String slng_m = data_p_m.getExtras().getString("text_lng_m");
-
+        S_lat_m = data_p_m.getExtras().getString("text_lat_p_m").trim();
+        S_lng_m = data_p_m.getExtras().getString("text_lng_p_m").trim();
 
 
         String simg_m = data_p_m.getExtras().getString("text_img_m");
@@ -101,51 +100,58 @@ public class Post_Missing extends AppCompatActivity {
         S_user_id_m = data_p_m.getExtras().getString("text_us_id_m");
 
         Picasso.with(getApplicationContext())
-                .load("http://192.168.1.4/atfalna_app/img_missing/" + simg_m)
+                .load("http://192.168.1.2/atfalna_app/img_missing/" + simg_m)
                 .into(img_p_m);
 
 
         gloablV = (GloablV) getApplicationContext();
         S_user_name_login = gloablV.getUser_name_login();
         S_user_id_login = gloablV.getUser_id_login();
+        sip =gloablV.getIp_url();
 
-        //  send  Comment_p_f
-        ed_comm_p_m = findViewById(R.id.ed_comment_p_m);
+        ////// map
+        tv_place_map_m = findViewById(R.id.tv_place_map_m);
 
         try{
-            if (S_lat_m.equals("") && S_lng_m.equals("")) {
+
+            if (S_lat_m.isEmpty() && S_lng_m.isEmpty()) {
                 tv_place_map_m.setText("لم يتم التحديد");
             } else {
                 tv_place_map_m.setText("رؤيت المكان");
             }
 
-            tv_place_map_m.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    if (S_lat_m.equals("") && S_lng_m.equals("")) {
-                        Toast.makeText(getApplicationContext(), " لم يتم تحديد المكان ", Toast.LENGTH_LONG).show();
-                    } else {
-                        Intent Inshow_map = new Intent(getApplicationContext(), Map_show_palce_f.class);
-
-                        Inshow_map.putExtra("key_show_lat_f", S_lat_m);
-                        Inshow_map.putExtra("key_show_lng_f", S_lng_m);
-
-                        startActivity(Inshow_map);
-                    }
-
-                }
-            });
+//            tv_place_map_m.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    if (S_lat_m.equals("") && S_lng_m.equals("")) {
+//                        Toast.makeText(getApplicationContext(), " لم يتم تحديد المكان ", Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Intent Inshow_map = new Intent(getApplicationContext(), Map_show_palce_m.class);
+//
+//                        Inshow_map.putExtra("key_show_lat_m", S_lat_m);
+//                        Inshow_map.putExtra("key_show_lng_m", S_lng_m);
+//
+//                        startActivity(Inshow_map);
+//                    }
+//                }
+//            });
         }catch (Exception ex){
-
             Toast.makeText(getApplicationContext()," لم يتم تحديد المكان "+ ex, Toast.LENGTH_LONG).show();
         }
 
-     //   get_comment_p_m();
+        ///map
+
+
+
+        get_comment_p_mm();//1
 
     }
 
     public void initView_P_M() {
+
+        tv_code_post_m = findViewById(R.id.tv_code_post_m);
+
         tv_user_name_m = findViewById(R.id.tv_user_name_p_m);
         tv_date_m = findViewById(R.id.tv_date_m);
         tv_time_m = findViewById(R.id.tv_time_m);
@@ -166,21 +172,24 @@ public class Post_Missing extends AppCompatActivity {
         tv_length_m = findViewById(R.id.tv_length_m);
         tv_address_m = findViewById(R.id.tv_address_m);
         tv_note_m = findViewById(R.id.tv_note_m);
-        tv_place_map_m=findViewById(R.id.tv_place_map_m);
 
-        img_p_m =findViewById(R.id.img_m);
+
+        img_p_m = findViewById(R.id.img_m);
+
+        ed_comm_p_m = findViewById(R.id.ed_comment_p_m1);
 
     }
 
-    public void get_comment_p_m() {
-        //show comment f
+    /////////////////////////////////////
+    public void get_comment_p_mm() {
+
         final TextView tv_total_comm_m = findViewById(R.id.tv_total_comm_m);
-        String url_comm_m = "http://192.168.1.4/atfalna_app/show_all_comment_missing.php?code_p_m=" + S_code_p_m;
+        String url_comm_f = "http://192.168.1.2/atfalna_app/show_all_comment_missing.php?code_p_m=" + S_code_p_m;
         requestQueue = Volley.newRequestQueue(this);
 
         listcomment_m.clear();
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_comm_m,
+        JsonObjectRequest jsonObjectRequest_m = new JsonObjectRequest(Request.Method.GET, url_comm_f,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -203,10 +212,7 @@ public class Post_Missing extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Error ::"+ e , Toast.LENGTH_LONG).show();
                         }
-                          listData_comm_m_alert();
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -214,7 +220,7 @@ public class Post_Missing extends AppCompatActivity {
                 Log.e("Volley", "Error");
             }
         });
-        requestQueue.add(jsonObjectRequest);
+        requestQueue.add(jsonObjectRequest_m);
         // end comment
     }
 
@@ -225,20 +231,20 @@ public class Post_Missing extends AppCompatActivity {
 
     class ListAdapter_comm extends BaseAdapter {
 
-        ArrayList<listitem_comm_m> list_comm_m = new ArrayList<listitem_comm_m>();
+        ArrayList<listitem_comm_m> list_comm = new ArrayList<listitem_comm_m>();
 
         ListAdapter_comm(ArrayList<listitem_comm_m> listitme) {
-            this.list_comm_m = listitme;
+            this.list_comm = listitme;
         }
 
         @Override
         public int getCount() {
-            return list_comm_m.size();
+            return list_comm.size();
         }
 
         @Override
         public Object getItem(int i) {
-            return list_comm_m.get(i).comment_m;
+            return list_comm.get(i).comment_m;
         }
 
         @Override
@@ -250,58 +256,55 @@ public class Post_Missing extends AppCompatActivity {
         public View getView(final int i, View view, ViewGroup viewGroup) {
 
             LayoutInflater layoutInflater = getLayoutInflater();
-            View v_comm_m = layoutInflater.inflate(R.layout.row_itme_comment, null);
+            View v_comm = layoutInflater.inflate(R.layout.row_itme_comment_m, null);
 
-            TextView comment = v_comm_m.findViewById(R.id.tv_comment_f_row);
-            TextView date_comm = v_comm_m.findViewById(R.id.tv_date_comm_f_row);
-            TextView time_comm = v_comm_m.findViewById(R.id.tv_time_comm_f_row);
-            TextView user_name_comm = v_comm_m.findViewById(R.id.tv_user_name_comm_f_row);
+            TextView comment_m = v_comm.findViewById(R.id.tv_comment_m_row);
+            TextView date_comm_m = v_comm.findViewById(R.id.tv_date_comm_m_row);
+            TextView time_comm_m = v_comm.findViewById(R.id.tv_time_comm_m_row);
+            TextView user_name_comm_m = v_comm.findViewById(R.id.tv_user_name_comm_m_row);
 
             String code_comm, us_id_comm;
-            code_comm = list_comm_m.get(i).code_comm_m;
-            us_id_comm = list_comm_m.get(i).us_id_m;
-            comment.setText(list_comm_m.get(i).comment_m);
-            date_comm.setText(list_comm_m.get(i).date_comm_m);
-            time_comm.setText(list_comm_m.get(i).time_comm_m);
-            user_name_comm.setText(list_comm_m.get(i).user_name_m);
+            code_comm = list_comm.get(i).code_comm_m;
+            us_id_comm = list_comm.get(i).us_id_m;
+            comment_m.setText(list_comm.get(i).comment_m);
+            date_comm_m.setText(list_comm.get(i).date_comm_m);
+            time_comm_m.setText(list_comm.get(i).time_comm_m);
+            user_name_comm_m.setText(list_comm.get(i).user_name_m);
 
-            return v_comm_m;
+            return v_comm;
         }
-    }
+    }//end class ad
 
-    public void btn_show_comm_m_in_alert(View view) {
+    public void btn_show_comm_m_in_alert(View v) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(Post_Missing.this);
         View vComm = layoutInflater.inflate(R.layout.item_alertdialog_comment_m, null);
 
         listV_comm_m_alert = vComm.findViewById(R.id.listV_all_comment_m_alert);
-
         listData_comm_m_alert();
-
         AlertDialog.Builder alert = new AlertDialog.Builder(Post_Missing.this);
         alert.setCancelable(true);
         alert.setView(vComm);
+        alert.show();
 
     }
 
-
     ProgressDialog pDialog_send_comm;
-    public void btn_send_comment_p_m(final View view) {
-
+    public void btn_send_comment_p_m1(final View view) {
         pDialog_send_comm = new ProgressDialog(Post_Missing.this);
         pDialog_send_comm.show();
         pDialog_send_comm.setMessage("لحظة و ستظهر التعليقات");
-       // listcomment_m.clear();
+        listcomment_m.clear();
         try {
             String comment_p_m = ed_comm_p_m.getText().toString().trim();
-            String code_p_m = S_code_p_m ;
+            String code_p_m = tv_code_post_m.getText().toString().trim();
 
             if (comment_p_m.equals("")) {
                 Toast.makeText(getApplicationContext(), "لا يمكن أضافة تعليق فارغ", Toast.LENGTH_SHORT).show();
                 pDialog_send_comm.dismiss();
             } else {
 
-                Response.Listener<String> responseLisener = new Response.Listener<String>() {
+                Response.Listener<String> responseLisenercm = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -310,26 +313,25 @@ public class Post_Missing extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(Post_Missing.this, "تم أضافة التعليق ", Toast.LENGTH_SHORT).show();
                                 ed_comm_p_m.setText("");
-                               // get_comment_p_m();
-                               // btn_show_comm_m_in_alert(view);
+                                get_comment_p_mm();
+                                btn_show_comm_m_in_alert(view);
                                 pDialog_send_comm.dismiss();
 
                             } else {
                                 Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات )", Toast.LENGTH_SHORT).show();
-                              //  get_comment_p_m();
+                                get_comment_p_mm();
                                 pDialog_send_comm.dismiss();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_LONG).show();
+                            get_comment_p_mm();
                             pDialog_send_comm.dismiss();
-                            get_comment_p_m();
-
                         }
                     }
                 };
                 Comment_Send_Data_M send_data_comment_m = new Comment_Send_Data_M(
-                        comment_p_m, S_user_id_login, S_code_p_m, responseLisener);
+                        comment_p_m, S_user_id_login, S_code_p_m, responseLisenercm);
                 RequestQueue queue_comment_p_m = Volley.newRequestQueue(getApplicationContext());
                 queue_comment_p_m.add(send_data_comment_m);
             }
@@ -337,7 +339,6 @@ public class Post_Missing extends AppCompatActivity {
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), "error ex : " + ex, Toast.LENGTH_LONG).show();
         }
-
 
     }
 }

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Comment_Send_Data_M extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/send_comment_m.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.2/atfalna_app/send_comment_m.php";
     private Map<String, String> MapData;
 
     public Comment_Send_Data_M(String comment_p_m,

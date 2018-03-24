@@ -35,7 +35,7 @@ public class All_P_M extends AppCompatActivity {
 
 
     RequestQueue requestQueue;
-    String url = "http://192.168.1.4/atfalna_app/show_all_post_missing.php";
+    String url_all_m = "http://192.168.1.2/atfalna_app/show_all_post_missing.php";
     ArrayList<listitem_m> listMissing = new ArrayList<listitem_m>();
     ListView listV_all_p_m;
     GloablV gloablV;
@@ -62,7 +62,7 @@ public class All_P_M extends AppCompatActivity {
     public void show_all_p_m() {
 
         requestQueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_all_m,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -193,7 +193,7 @@ public class All_P_M extends AppCompatActivity {
             phone_m.setText(listM.get(i).phone_m);
 
             Picasso.with(getApplicationContext())
-                    .load("http://192.168.1.4/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
+                    .load("http://192.168.1.2/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
 
             listV_all_p_m.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -234,8 +234,8 @@ public class All_P_M extends AppCompatActivity {
                     openPost_m.putExtra("text_us_id_m", listM.get(i).us_id_m);
                     openPost_m.putExtra("text_user_name_m", listM.get(i).user_name_m);
 
-                    openPost_m.putExtra("text_lat_m", listM.get(i).lat_m);
-                    openPost_m.putExtra("text_lng_m", listM.get(i).lng_m);
+                    openPost_m.putExtra("text_lat_p_m", listM.get(i).lat_m);
+                    openPost_m.putExtra("text_lng_p_m", listM.get(i).lng_m);
 
                     startActivity(openPost_m);
 
