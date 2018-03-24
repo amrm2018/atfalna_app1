@@ -1,5 +1,7 @@
 package com.example.atfalna.atfalna_app1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -82,5 +84,25 @@ public class Create_P_M_Map extends FragmentActivity implements OnMapReadyCallba
 
 
     }
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(Create_P_M_Map.this);
+
+        builder.setMessage("هل اختارت المكان")
+                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        gloablV = (GloablV) getApplicationContext();
+
+                        gloablV.setLat_m(Slat);
+                        gloablV.setLng_m(Slng);
+
+                        Intent inten = new Intent(getApplicationContext(),Create_P_M.class);
+                        startActivity(inten);
+                    }
+                }).setNegativeButton(" لا ساختار",null).show();
+
+    }
+
 
 }

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Registration_Send_Data  extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/register.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.2/atfalna_app/register.php";
     private Map<String, String> MapData;
 
     public Registration_Send_Data(String name, String email, String password,String gender, String phone, Response.Listener<String> listener) {

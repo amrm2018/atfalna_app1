@@ -17,15 +17,15 @@
         android:onClick="btn_Logout"
         android:src="@drawable/ic_logout1" />
 
-    <ImageView
-        android:id="@+id/img_profile"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:onClick="go_profil"
-        android:src="@drawable/ic_profile2" />
+    <!--<ImageView-->
+        <!--android:id="@+id/img_profile"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:onClick="go_profil"-->
+        <!--android:src="@drawable/ic_profile2" />-->
 
     <ImageView
         android:id="@+id/img_logo_app"
@@ -33,9 +33,10 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="22dp"
         android:elevation="4dp"
-        android:src="@drawable/logo_pro" />
+        android:src="@drawable/logo_pro"
+        />
 
     <TextView
         android:id="@+id/tv_user_name"
@@ -55,13 +56,13 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="17dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="260dp"
         android:orientation="vertical">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="65dp"
             android:onClick="go_all_p_f">
 
             <TextView
@@ -115,7 +116,7 @@
         <RelativeLayout
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:onClick="go_create_p_f">
 
             <TextView
