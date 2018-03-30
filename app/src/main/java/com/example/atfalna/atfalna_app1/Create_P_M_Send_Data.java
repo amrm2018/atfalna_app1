@@ -24,9 +24,7 @@ public class Create_P_M_Send_Data extends StringRequest {
             String length_m, String wiegth_m,
             String case_name_m, String nickname_m, String age_now_m,
             String note_m, String img_m,
-            String user_id_m,String user_name_m ,
-            String lat_m ,String lng_m ,
-                                Response.Listener<String> listener) {
+            String user_id_m,String user_name_m , Response.Listener<String> listener) {
         super(Method.POST, SEND_DATA_URL, listener, null);
         MapData = new HashMap<>();
 
@@ -59,9 +57,6 @@ public class Create_P_M_Send_Data extends StringRequest {
 
         MapData.put("user_id_m", user_id_m);
         MapData.put("user_name_m", user_name_m);
-
-        MapData.put("lat_m", lat_m);
-        MapData.put("lng_m", lng_m);
 
     }
 

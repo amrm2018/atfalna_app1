@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.atfalna.atfalna_app1.Edit_p_f">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/ic_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="20dp"
+            android:text="تعديل المنشور"
+            android:textColor="#4d8ecf"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_title_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rel_map"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="تعديل التاريخ اللى شوفت فيه الحالة"
+            android:textColor="#4d8ecf" />
+
+        <LinearLayout
+            android:id="@+id/lin_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_title_date"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <EditText
+                    android:id="@+id/ed_year_edit_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="4"
+                    android:gravity="right"
+                    android:hint="السنة"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:paddingRight="10dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+
+                <EditText
+                    android:id="@+id/ed_month_edit_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:hint="الشهر"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+
+                <EditText
+                    android:id="@+id/ed_day_edit_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:hint="يوم"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingRight="10dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:gravity="right|center_vertical"
+                android:paddingRight="5dp">
+
+                <EditText
+                    android:id="@+id/ed_city_edit_f"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="3dp"
+                    android:gravity="center_vertical|right"
+                    android:hint="اسم المحافظة"
+                    android:textColorHint="#000"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:text="المحافظة اللى فيها الحالة  :"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/ed_place_edit_f"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|bottom"
+                    android:hint="مكان الحالة بالتفصيل  : "
+                    android:maxLines="2"
+                    android:paddingRight="5dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lin_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lin_place"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:padding="1dp">
+
+                <EditText
+                    android:id="@+id/ed_info_edit_f"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|bottom"
+                    android:hint="أكتب المعلومات اللى تعرفها عن الحالة
+ ( لابس اية - الهيئة - بيعمل اية )"
+                    android:maxLines="3"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="#000" />
+
+            </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/ed_phone_edit_f"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:gravity="right|center_vertical"
+                    android:hint="رقم تليفونك"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="#000" />
+
+            <LinearLayout
+                android:id="@+id/lin_gender"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="2dp"
+                android:gravity="right|center_vertical"
+                android:paddingRight="10dp">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="9"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rdo_male_edit_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:checked="true"
+                        android:text="ذكر"
+                        android:textColor="#000"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdo_female_edit_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="أنثي"
+                        android:textColor="#000"
+                        android:textSize="15sp" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="نوع المفقود  : "
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_edit_f"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/styel_btn_create_post"
+                android:gravity="center"
+                android:text="نــشــر"
+                android:textColor="#5588c6"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

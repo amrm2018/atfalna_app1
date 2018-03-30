@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    app:cardBackgroundColor="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        >
+
+        <TextView
+            android:id="@+id/tv_code_post_f_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text=""
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_edit_f_row"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_edit"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_user"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/logo_atfalna"
+            app:civ_border_color="#5c66c7"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:id="@+id/tv_user_name_f_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/ic_date"
+            android:layout_marginTop="10dp"
+            android:text="user_name"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ic_map"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/tv_user_name_f_row"
+            android:src="@drawable/ic_map" />
+
+        <ImageView
+            android:id="@+id/ic_date"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_below="@id/tv_user_name_f_row"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_toLeftOf="@id/img_user"
+            android:src="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/tv_date_f_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user_name_f_row"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@id/ic_date"
+            android:text="20/02/2018" />
+
+        <TextView
+            android:id="@+id/tv_city_f_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/ic_map"
+            android:text="القاهرة"
+            android:textColor="#243ae6" />
+
+        <ImageView
+            android:id="@+id/img_f_row"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_date_f_row"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/no_photo" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

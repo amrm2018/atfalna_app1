@@ -221,10 +221,6 @@ public class Create_P_M extends AppCompatActivity {
 
         String S_note_m = ed_note_m.getText().toString().trim();
 
-        String Lat_m =Tv_show_lat_m.getText().toString().trim();
-        String Lng_m =Tv_show_lng_m.getText().toString().trim();
-
-
         if (S_day_m.isEmpty()) {
             ed_day_m.requestFocus();
             ed_day_m.setError("أكتب يوم");
@@ -265,10 +261,10 @@ public class Create_P_M extends AppCompatActivity {
             ed_phone_m.setError("أكتب رقم التليفون صح");
             pdialog.dismiss();
         }
-        else if (S_nickname_m.isEmpty()) {
-            ed_nick_name_m.setText("");
-            pdialog.dismiss();
-        }
+//        else if (S_nickname_m.isEmpty()) {
+//            ed_nick_name_m.setText("");
+//            pdialog.dismiss();
+//        }
         else if (S_age_now_m.isEmpty()) {
             ed_age_now_m.requestFocus();
             ed_age_now_m.setError("أكتب عمرالحالة الان ");
@@ -284,8 +280,7 @@ public class Create_P_M extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الحالة .. ِشكرا لك", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),All_P_F.class));
-                            CustomIntent.customType(getApplicationContext(), "up-to-bottom");
+                            startActivity(new Intent(getApplicationContext(),All_P_M.class));
                             pdialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات المدخلة)", Toast.LENGTH_SHORT).show();
@@ -308,8 +303,8 @@ public class Create_P_M extends AppCompatActivity {
                     S_length_m, S_wiegth_m,
                     S_case_name_m, S_nickname_m, S_age_now_m,
                     S_note_m, encodeimg_m,
-                    S_user_id_m, S_user_name_m,
-                    Lat_m , Lng_m ,responseLisener);
+                    S_user_id_m, S_user_name_m
+                    ,responseLisener);
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
             queue.add(send_Data_missing);
 
@@ -344,10 +339,10 @@ public class Create_P_M extends AppCompatActivity {
         }
     }
 
-    public void go_select_place_m(View view) {
-        startActivity( new Intent(getApplicationContext() , Create_P_M_Map.class));
-
-    }
+//    public void go_select_place_m(View view) {
+//        startActivity( new Intent(getApplicationContext() , Create_P_M_Map.class));
+//
+//    }
 
     @Override
     public void onBackPressed() {

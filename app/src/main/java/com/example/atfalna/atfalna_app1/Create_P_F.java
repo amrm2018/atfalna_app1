@@ -203,7 +203,6 @@ public class Create_P_F extends AppCompatActivity {
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الاعلان", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),All_P_F.class));
-                            CustomIntent.customType(getApplicationContext(), "up-to-bottom");
                             dialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات)", Toast.LENGTH_SHORT).show();

@@ -55,6 +55,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
                             android:text=""
+                            android:visibility="invisible"
                             />
 
 
@@ -704,12 +705,29 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:background="@drawable/style_btn_comment"
+                        android:gravity="center"
+                        android:onClick="btn_send_comment_p_m1"
+                        android:text="ارسال"
+                        android:textColor="#fff"
+                        android:layout_margin="5dp"
+                        />
 
                     <EditText
                         android:id="@+id/ed_comment_p_m1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="5dp"
                         android:layout_marginEnd="8dp"
@@ -718,17 +736,6 @@
                         android:padding="10dp"
                         android:textColor="#000"
                         android:textColorHint="#000" />
-
-                    <Button
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/style_btn_comment"
-                        android:gravity="center"
-                        android:onClick="btn_send_comment_p_m1"
-                        android:text="ارسال التعليق"
-                        android:textColor="#fff"
-                        android:layout_marginBottom="20dp"/>
 
                 </LinearLayout>
 
