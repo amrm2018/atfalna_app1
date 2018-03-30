@@ -82,7 +82,6 @@ public class Create_P_M_Map extends FragmentActivity implements OnMapReadyCallba
         Intent inten = new Intent(getApplicationContext(),Create_P_M.class);
         startActivity(inten);
 
-
     }
     @Override
     public void onBackPressed(){

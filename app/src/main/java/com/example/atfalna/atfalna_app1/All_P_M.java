@@ -37,10 +37,11 @@ public class All_P_M extends AppCompatActivity {
 
 
     RequestQueue requestQueue;
-    String url_all_m = "http://192.168.1.3/atfalna_app/show_all_post_missing.php";
+
     ArrayList<listitem_m> listMissing = new ArrayList<listitem_m>();
     ListView listV_all_p_m;
     GloablV gloablV;
+    String sip ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class All_P_M extends AppCompatActivity {
         listV_all_p_m = findViewById(R.id.listv_all_p_m);
 
         gloablV = (GloablV) getApplicationContext();
+        sip= gloablV.getIp_url();
 
         show_all_p_m();
 
@@ -63,6 +65,7 @@ public class All_P_M extends AppCompatActivity {
 
     public void show_all_p_m() {
 
+        String url_all_m = sip +"/atfalna_app/show_all_post_missing.php";
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_all_m,
                 new Response.Listener<JSONObject>() {
@@ -138,7 +141,6 @@ public class All_P_M extends AppCompatActivity {
 
     }
 
-
     public void listData_m() {
         ListAdapter_all_p_m ad = new ListAdapter_all_p_m(listMissing);
         listV_all_p_m.setAdapter(ad);
@@ -174,9 +176,9 @@ public class All_P_M extends AppCompatActivity {
             View v1 = layoutInflater.inflate(R.layout.row_itme_p_m, null);
 
             TextView code_p_m = v1.findViewById(R.id.tv_code_post_m_list);
-            TextView user_name_p_m = v1.findViewById(R.id.tv_user_name_m);
+            TextView user_name_p_m = v1.findViewById(R.id.tv_user_name_f_row);
             TextView city_m = v1.findViewById(R.id.tv_city_m_list);
-            TextView date_p_m = v1.findViewById(R.id.tv_date_m);
+            TextView date_p_m = v1.findViewById(R.id.tv_date_f_row);
 
 
             TextView case_name = v1.findViewById(R.id.tv_name_case_m_list);
@@ -195,7 +197,7 @@ public class All_P_M extends AppCompatActivity {
             phone_m.setText(listM.get(i).phone_m);
 
             Picasso.with(getApplicationContext())
-                    .load("http://192.168.1.3/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
+                    .load(sip+ "/atfalna_app/img_missing/" + listM.get(i).img_m).into(imgfound);
 
             listV_all_p_m.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

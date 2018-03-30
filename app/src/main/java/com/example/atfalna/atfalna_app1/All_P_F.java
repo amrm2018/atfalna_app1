@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,10 +36,11 @@ import maes.tech.intentanim.CustomIntent;
 public class All_P_F extends AppCompatActivity {
 
     RequestQueue requestQueue;
-    String url = "http://192.168.1.3/atfalna_app/show_all_post_found.php";
     ArrayList<listitem_f> listMovis = new ArrayList<listitem_f>();
     ListView listV_all_p_f ;
-    GloablV gloablV;
+    GloablV gloablV ;
+    String sip ;
+    private int previousPosition = 0; // للانيميشان
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +50,19 @@ public class All_P_F extends AppCompatActivity {
         Toolbar toolbar =findViewById(R.id.toolbar_all_p_f); // get the reference of Toolbar
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        gloablV = (GloablV) getApplicationContext();
+        sip = gloablV.getIp_url();
 
         Refresh();
 
         listV_all_p_f = findViewById(R.id.listv_all_p_f);
-
-        gloablV = (GloablV) getApplicationContext();
 
         show_all_p_f();
 
     }
 
     public void show_all_p_f() {
+        String url = sip+"/atfalna_app/show_all_post_found.php";
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
@@ -102,10 +105,9 @@ public class All_P_F extends AppCompatActivity {
                                         us_id_f, user_name_f ,
                                         lat_f ,lng_f));
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_LONG).show();
                         }
                         listData();
                     }
@@ -116,9 +118,7 @@ public class All_P_F extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
-
     }
-
 
     public void listData() {
         ListAdapter_all_p_f ad = new ListAdapter_all_p_f(listMovis);
@@ -128,26 +128,21 @@ public class All_P_F extends AppCompatActivity {
     class ListAdapter_all_p_f extends BaseAdapter {
 
         ArrayList<listitem_f> listA = new ArrayList<listitem_f>();
-
         ListAdapter_all_p_f(ArrayList<listitem_f> listitme) {
             this.listA = listitme;
         }
-
         @Override
         public int getCount() {
             return listA.size();
         }
-
         @Override
         public Object getItem(int i) {
             return listA.get(i).code_p_f;
         }
-
         @Override
         public long getItemId(int i) {
             return i;
         }
-
         @Override
         public View getView(final int i, View view, ViewGroup viewGroup) {
 
@@ -155,9 +150,9 @@ public class All_P_F extends AppCompatActivity {
             View v1 = layoutInflater.inflate(R.layout.row_itme_p_f, null);
 
             TextView code_p_f = v1.findViewById(R.id.tv_code_post_f_list);
-            TextView user_name_p_f = v1.findViewById(R.id.tv_user_name_m);
+            TextView user_name_p_f = v1.findViewById(R.id.tv_user_name_f_row);
             TextView city_f = v1.findViewById(R.id.tv_city_f_list);
-            TextView date_p_f = v1.findViewById(R.id.tv_date_m);
+            TextView date_p_f = v1.findViewById(R.id.tv_date_f_row);
 
             final ImageView imgfound = v1.findViewById(R.id.img_f_list);
 
@@ -167,7 +162,7 @@ public class All_P_F extends AppCompatActivity {
             date_p_f.setText(listA.get(i).date_p_f);
 
             Picasso.with(getApplicationContext())
-                    .load("http://192.168.1.3/atfalna_app/img_found/" + listA
+                    .load(sip+"/atfalna_app/img_found/" + listA
                     .get(i).img_f)
                     .into(imgfound);
 
@@ -202,10 +197,7 @@ public class All_P_F extends AppCompatActivity {
                     openPost.putExtra("text_lng_f", listA.get(i).lng_f);
 
                     startActivity(openPost);
-
                     CustomIntent.customType(All_P_F.this, "left-to-right");
-
-
                 }
             });
 
@@ -220,7 +212,6 @@ public class All_P_F extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
-
                 (new Handler()).postDelayed(new Runnable() {
                     @Override
                     public void run() {

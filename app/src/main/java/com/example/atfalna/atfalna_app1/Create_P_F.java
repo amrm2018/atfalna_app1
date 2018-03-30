@@ -48,11 +48,10 @@ public class Create_P_F extends AppCompatActivity {
 
     // send image
     ImageView imgV_f;
-    String encodeimg_f, S_user_id;
+    String encodeimg_f, S_month , S_city , S_user_id;
 
-    ImageButton imgb_add_place, imgb_done_place;
+    ImageButton imgb_add_place , imgb_done_place ;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,24 +78,18 @@ public class Create_P_F extends AppCompatActivity {
         SP_month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                TV_show_month.setText(selectspinnerMonth);
+                S_month = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });//--------SP_month
 
         SP_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String selectspinnerCity = adapterView.getItemAtPosition(i).toString();
-                TV_show_City.setText(selectspinnerCity);
+                S_city = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
@@ -113,9 +106,10 @@ public class Create_P_F extends AppCompatActivity {
         tv_show_user_id_f.setText(gloablV.getUser_id_login());
 
         S_user_id = gloablV.getUser_id_login();
-//        if (S_user_id.equals("")){
-//            Toast.makeText(getApplicationContext(), "لا يوجد اتصال بالانترنت", Toast.LENGTH_SHORT).show();
-//        }
+        if (tv_show_user_id_f.getText().toString().trim().equals("")) {
+            Toast.makeText(getApplicationContext(), "لا يوجد اتصال بالانترنت", Toast.LENGTH_SHORT).show();
+
+        }
 
         //-- send image
         imgV_f = findViewById(R.id.img_post_found);
@@ -140,10 +134,6 @@ public class Create_P_F extends AppCompatActivity {
 
     }
 
-    public void initView() {
-
-    }
-
     //---------------------------
     ProgressDialog dialog;
 
@@ -160,10 +150,7 @@ public class Create_P_F extends AppCompatActivity {
         encodeimg_f = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
         // encodeimg  هو دا المتغير اللي شايل الصورة
 
-        String City = TV_show_City.getText().toString();
-
         String Day = ED_day.getText().toString().trim();
-        String Month = TV_show_month.getText().toString();
         String Year = ED_year.getText().toString().trim();
 
         String Gender_case;
@@ -183,6 +170,7 @@ public class Create_P_F extends AppCompatActivity {
         String Lat_f = Tv_show_lat_f.getText().toString().trim();
         String Lng_f = Tv_show_lng_f.getText().toString().trim();
 
+        int iyear = Integer.parseInt(ED_year.getText().toString().trim());
 
         if (Day.isEmpty()) {
             ED_day.setError("اكتب اليوم");
@@ -191,6 +179,10 @@ public class Create_P_F extends AppCompatActivity {
             ED_year.setError("اكتب السنة");
             dialog.dismiss();
         } else if (!validateyear(ED_year.getText().toString().trim())) {
+            ED_year.setError("رقم السنة غير صحيح");
+            ED_year.requestFocus();
+            dialog.dismiss();
+        } else if (iyear > 2030 && iyear < 1980) {
             ED_year.setError("رقم السنة غير صحيح");
             ED_year.requestFocus();
             dialog.dismiss();
@@ -210,6 +202,8 @@ public class Create_P_F extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الاعلان", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),All_P_F.class));
+                            CustomIntent.customType(getApplicationContext(), "up-to-bottom");
                             dialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات)", Toast.LENGTH_SHORT).show();
@@ -217,14 +211,16 @@ public class Create_P_F extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error ::"+ e , Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
                     }
                 }
             };
 
             Create_P_F_Send_Data send_Data_found = new Create_P_F_Send_Data(
                     encodeimg_f,
-                    City,
-                    Day, Month, Year,
+                    S_city,
+                    Day, S_month, Year,
                     Gender_case, Phone,
                     Place, Info,
                     Us_id_f, User_name_f,

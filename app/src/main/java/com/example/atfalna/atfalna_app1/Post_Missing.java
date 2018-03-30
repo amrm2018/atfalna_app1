@@ -31,8 +31,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import maes.tech.intentanim.CustomIntent;
-
 public class Post_Missing extends AppCompatActivity {
 
     TextView tv_code_post_m, tv_user_name_m, tv_date_m, tv_time_m, tv_city_m, tv_bonus_m,
@@ -61,6 +59,11 @@ public class Post_Missing extends AppCompatActivity {
         setContentView(R.layout.activity_post_missing);
 
         initView_P_M();
+
+        gloablV = (GloablV) getApplicationContext();
+        S_user_name_login = gloablV.getUser_name_login();
+        S_user_id_login = gloablV.getUser_id_login();
+        sip =gloablV.getIp_url();
 
         Intent data_p_m = getIntent();
 
@@ -103,47 +106,8 @@ public class Post_Missing extends AppCompatActivity {
         S_user_id_m = data_p_m.getExtras().getString("text_us_id_m");
 
         Picasso.with(getApplicationContext())
-                .load("http://192.168.1.3/atfalna_app/img_missing/" + simg_m)
+                .load(sip +"/atfalna_app/img_missing/" + simg_m)
                 .into(img_p_m);
-
-
-        gloablV = (GloablV) getApplicationContext();
-        S_user_name_login = gloablV.getUser_name_login();
-        S_user_id_login = gloablV.getUser_id_login();
-        sip =gloablV.getIp_url();
-
-//        ////// map
-//       tv_place_map_m = findViewById(R.id.tv_place_map_m);
-//
-//        try{
-//
-//            if (S_lat_m.isEmpty() && S_lng_m.isEmpty()) {
-//              //  tv_place_map_m.setText("لم يتم التحديد");
-//            } else {
-//              // tv_place_map_m.setText("رؤيت المكان");
-//            }
-//
-////            tv_place_map_m.setOnClickListener(new View.OnClickListener() {
-////                @Override
-////                public void onClick(View view) {
-////
-////                    if (S_lat_m.equals("") && S_lng_m.equals("")) {
-////                        Toast.makeText(getApplicationContext(), " لم يتم تحديد المكان ", Toast.LENGTH_LONG).show();
-////                    } else {
-////                        Intent Inshow_map = new Intent(getApplicationContext(), Map_show_palce_m.class);
-////
-////                        Inshow_map.putExtra("key_show_lat_m", S_lat_m);
-////                        Inshow_map.putExtra("key_show_lng_m", S_lng_m);
-////
-////                        startActivity(Inshow_map);
-////                    }
-////                }
-////            });
-//        }catch (Exception ex){
-//            Toast.makeText(getApplicationContext()," لم يتم تحديد المكان "+ ex, Toast.LENGTH_LONG).show();
-//        }
-//
-//        ///map
 
         get_comment_p_mm();//1
         get_a_like_m();
@@ -155,7 +119,7 @@ public class Post_Missing extends AppCompatActivity {
         tv_code_post_m = findViewById(R.id.tv_code_post_m);
 
         tv_user_name_m = findViewById(R.id.tv_user_name_p_m);
-        tv_date_m = findViewById(R.id.tv_date_m);
+        tv_date_m = findViewById(R.id.tv_date_f_row);
         tv_time_m = findViewById(R.id.tv_time_m);
         tv_city_m = findViewById(R.id.tv_city_m);
         tv_bonus_m = findViewById(R.id.tv_bonus_m);
@@ -175,7 +139,6 @@ public class Post_Missing extends AppCompatActivity {
         tv_address_m = findViewById(R.id.tv_address_m);
         tv_note_m = findViewById(R.id.tv_note_m);
 
-
         img_p_m = findViewById(R.id.img_m);
 
         ed_comm_p_m = findViewById(R.id.ed_comment_p_m1);
@@ -189,7 +152,7 @@ public class Post_Missing extends AppCompatActivity {
     public void get_comment_p_mm() {
 
         final TextView tv_total_comm_m = findViewById(R.id.tv_total_comm_m);
-        String url_comm_f = "http://192.168.1.3/atfalna_app/show_all_comment_missing.php?code_p_m=" + S_code_p_m;
+        String url_comm_f = sip + "/atfalna_app/show_all_comment_missing.php?code_p_m=" + S_code_p_m;
         requestQueue = Volley.newRequestQueue(this);
 
         listcomment_m.clear();
@@ -349,7 +312,7 @@ public class Post_Missing extends AppCompatActivity {
 
 
     public void get_a_like_m() {
-        String url_get_like_m = "http://192.168.1.3/atfalna_app/show_like_m.php?code_p_m="+ S_code_p_m;
+        String url_get_like_m = sip + "/atfalna_app/show_like_m.php?code_p_m="+ S_code_p_m;
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_get_like_m,
                 new Response.Listener<JSONObject>() {
@@ -387,7 +350,7 @@ public class Post_Missing extends AppCompatActivity {
 
     public void btn_add_like_m(View view) {
         RequestQueue queue = Volley.newRequestQueue(Post_Missing.this);
-        String url_add_Like = "http://192.168.1.3/atfalna_app/send_like_m.php?us_id_login="
+        String url_add_Like = sip +"/atfalna_app/send_like_m.php?us_id_login="
                                +S_user_id_login+"&code_p_m="+S_code_p_m ;
         StringRequest request = new StringRequest(Request.Method.GET, url_add_Like, new Response.Listener<String>() {
             @Override
@@ -414,16 +377,15 @@ public class Post_Missing extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.e("Volley", "Error");
             }
         });
-
         queue.add(request);
     }
 
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(), All_P_M.class));
-        CustomIntent.customType(Post_Missing.this, "right-to-left");
-    }
+//    @Override
+//    public void onBackPressed() {
+//        startActivity(new Intent(getApplicationContext(), All_P_M.class));
+//        CustomIntent.customType(Post_Missing.this, "right-to-left");
+//    }
 }

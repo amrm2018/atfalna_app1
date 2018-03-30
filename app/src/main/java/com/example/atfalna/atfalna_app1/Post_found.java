@@ -52,15 +52,15 @@ public class Post_found extends AppCompatActivity {
     ArrayList<listitem_comm_f> listcomment_f = new ArrayList<listitem_comm_f>();
     ListView  listV_comm_f_alert;
 
-    String S_code_p_f, S_lat_f, S_lng_f;
-
-
+    String S_code_p_f, S_lat_f, S_lng_f  , sipurl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_found);
 
+        gloablV = (GloablV) getApplicationContext();
+        sipurl =gloablV.getIp_url();
         tv_code_p = findViewById(R.id.tv_code_p_f);
         tv_user_name_f = findViewById(R.id.tv_user_name_p_f);
         tv_date_p_f = findViewById(R.id.tv_date_p_f);
@@ -111,24 +111,22 @@ public class Post_found extends AppCompatActivity {
         tv_user_name_f.setText(data_p_f.getExtras().getString("text_user_name_f").trim());
 
         Picasso.with(getApplicationContext())
-                .load("http://192.168.1.3/atfalna_app/img_found/" + simg)
+                .load(sipurl+"/atfalna_app/img_found/" + simg)
                 .into(img_p_f);
 
-        gloablV = (GloablV) getApplicationContext();
         S_user_name_login = gloablV.getUser_name_login();
         S_user_id_login = gloablV.getUser_id_login();
+        sipurl = gloablV.getIp_url();
 
         //  send  Comment_p_f
         ed_comm_p_f = findViewById(R.id.ed_comment_p_f);
 
         try{
-
             if (S_lat_f.equals("") && S_lng_f.equals("")) {
                 tv_place_map1.setText("لم يتم التحديد");
             } else {
                 tv_place_map1.setText("اضغط لرؤيت المكان");
             }
-
 
             tv_place_map1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -138,25 +136,19 @@ public class Post_found extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), " لم يتم تحديد المكان ", Toast.LENGTH_LONG).show();
                     } else {
                         Intent Inshow_map_f = new Intent(getApplicationContext(), Map_show_palce_f.class);
-
                         Inshow_map_f.putExtra("key_show_lat_f", S_lat_f);
                         Inshow_map_f.putExtra("key_show_lng_f", S_lng_f);
-
                         startActivity(Inshow_map_f);
                     }
-
                 }
             });
         }catch (Exception ex){
-
             Toast.makeText(getApplicationContext()," لم يتم تحديد المكان "+ ex, Toast.LENGTH_LONG).show();
         }
 
         get_comment_p_f();//1
         get_a_like_f();
     }
-
-
 
     // Send_Data_Comment_to_Serveries
     ProgressDialog pDialog_send_comm;
@@ -189,7 +181,6 @@ public class Post_found extends AppCompatActivity {
                                 btn_show_comm_f_in_alert(view);
                                 pDialog_send_comm.dismiss();
 
-
                             } else {
                                 Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات )", Toast.LENGTH_SHORT).show();
                                 get_comment_p_f();
@@ -200,7 +191,6 @@ public class Post_found extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "error is : " + e, Toast.LENGTH_LONG).show();
                             pDialog_send_comm.dismiss();
                             get_comment_p_f();
-
                         }
                     }
                 };
@@ -209,18 +199,15 @@ public class Post_found extends AppCompatActivity {
                 RequestQueue queue_comment_p_f = Volley.newRequestQueue(getApplicationContext());
                 queue_comment_p_f.add(send_data_comment_f);
             }
-
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), "error ex : " + ex, Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     public void get_comment_p_f() {
         //show comment f
         final TextView tv_total_comm_f = findViewById(R.id.tv_total_comm_f);
-        String url_comm_f = "http://192.168.1.3/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
+        String url_comm_f = sipurl + "/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
 
         listcomment_f.clear();
@@ -331,7 +318,7 @@ public class Post_found extends AppCompatActivity {
 
 
     public void get_a_like_f() {
-        String url_get_like_f = "http://192.168.1.3/atfalna_app/show_like_f.php?code_p_f=" + S_code_p_f;
+        String url_get_like_f = sipurl + "/atfalna_app/show_like_f.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_get_like_f,
                 new Response.Listener<JSONObject>() {
@@ -371,11 +358,10 @@ public class Post_found extends AppCompatActivity {
 
     public void btn_add_like_f(View view) {
         RequestQueue queue = Volley.newRequestQueue(Post_found.this);
-        String url_add_Like = "http://192.168.1.3/atfalna_app/send_like_f.php?us_id_login="+S_user_id_login+"&code_p_f="+S_code_p_f ;
+        String url_add_Like = sipurl + "/atfalna_app/send_like_f.php?us_id_login="+S_user_id_login+"&code_p_f="+S_code_p_f ;
         StringRequest request = new StringRequest(Request.Method.GET, url_add_Like, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
@@ -397,19 +383,16 @@ public class Post_found extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.e("Volley", "Error");
             }
         });
-
         queue.add(request);
     }
 
-
-
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(), All_P_F.class));
-        CustomIntent.customType(Post_found.this, "right-to-left");
-    }
+//    @Override
+//    public void onBackPressed() {
+//        startActivity(new Intent(getApplicationContext(), All_P_F.class));
+//        CustomIntent.customType(Post_found.this, "right-to-left");
+//    }
 
 }

@@ -32,7 +32,7 @@
           android:layout_marginTop="50dp"
           android:id="@+id/listv_all_p_f"
           android:layout_centerHorizontal="true"
-          android:background="#20e0e6ed"/>
+          android:background="#fff"/>
 
    </android.support.v4.widget.SwipeRefreshLayout>
 

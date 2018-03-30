@@ -29,11 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
     GloablV gloablV;
-
     String S_user_email, S_user_id, S_user_name;
-
     String urlid;
-
     String sip = "http://192.168.1.3";
 
     TextView textView_id, textView_email, textView_user_name;
@@ -51,10 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         gloablV = (GloablV) getApplicationContext();
         S_user_email = gloablV.getEmail_user_login();
-        //textView_email.setText(gloablV.getEmail_user_login());
-
         gloablV.setIp_url(sip);
-
 
         urlid = sip + "/atfalna_app/show_userid.php?useremail=" + S_user_email;
         get_userid();//خاص بانه يجيب ال id بتاع ال user اللى يدخل الapp
@@ -107,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
                         getSharedPreferences("MyPref1", MODE_PRIVATE).edit().clear().commit();
                         startActivity(new Intent(getApplicationContext(), Login.class));
-
                         CustomIntent.customType(MainActivity.this, "right-to-left");
                     }
                 }).setNegativeButton(" لا سابقي..", null).show();
@@ -143,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void go_profil(View view) {
         startActivity(new Intent(getApplicationContext(), Profile.class));
-        CustomIntent.customType(MainActivity.this, "left-to-right");
+        CustomIntent.customType(MainActivity.this, "bottom-to-up");
     }
 
     @Override

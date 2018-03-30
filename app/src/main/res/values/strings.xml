@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">atfalna_app1</string>
 
-
     <string-array name="spinner_month">
         <item>يناير</item>
         <item>فبراير</item>
@@ -50,7 +49,6 @@
 
     </string-array>
 
-
     <string-array name="spinner_color_eye">
         <item>اسود</item>
         <item>اخضر</item>
@@ -98,6 +96,5 @@
     <string name="title_activity_map_show_palce_f">Map</string>
     <string name="title_activity_create__p__m__map">Map</string>
     <string name="title_activity_map_show_palce_m">Map</string>
-
 
 </resources>

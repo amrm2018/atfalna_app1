@@ -89,7 +89,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="3dp"
                         android:layout_toLeftOf="@id/img_time_p_f"
-                        android:src="@drawable/ic_time_p"
                         android:text="10:30 pm"
                         android:textColor="#c6000000"
                         android:textStyle="bold" />
@@ -117,7 +116,7 @@
                         android:layout_marginRight="50dp"
                         android:layout_marginLeft="50dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image_p" />
+                        android:src="@drawable/no_photo" />
 
                     <RelativeLayout
                         android:id="@+id/r2"

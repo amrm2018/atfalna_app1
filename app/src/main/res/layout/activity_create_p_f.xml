@@ -31,10 +31,10 @@
             <ImageView
                 android:id="@+id/img_post_found"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginTop="5dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/image_p"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/no_photo"
                 android:background="#fff"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -43,7 +43,7 @@
                 android:layout_height="45dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="165dp"
+                android:layout_marginTop="195dp"
                 android:background="@drawable/opencamera_1"
                 android:elevation="4dp"
                 android:onClick="btn_pick_photo"
@@ -56,14 +56,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_open_gallery"
                 android:id="@+id/rel_map"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:padding="5dp">
 
                 <ImageButton
                     android:id="@+id/imgb_add_place"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:layout_toLeftOf="@+id/tv1"
@@ -310,7 +310,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btn_create_post_missing"
+                    android:id="@+id/btn_edit_f"
                     android:layout_width="150dp"
                     android:layout_height="35dp"
                     android:layout_below="@id/lin_gender"

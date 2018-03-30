@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -36,6 +36,7 @@
         android:layout_marginTop="22dp"
         android:elevation="4dp"
         android:src="@drawable/logo_pro"
+        android:onClick="go_profil"
         />
 
     <TextView
@@ -46,10 +47,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Amr mohamed"
+        android:text="لا يوجد انترنت"
         android:textColor="#000"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="go_profil"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,12 +76,12 @@
                 android:layout_marginRight="20dp"
                 android:text="حالات تم رؤيتها"
                 android:textColor="#62c7ff"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
@@ -101,12 +103,12 @@
                 android:layout_marginRight="20dp"
                 android:text="حالات مفقودة"
                 android:textColor="#62c7ff"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
@@ -128,12 +130,13 @@
                 android:layout_marginRight="20dp"
                 android:text="النشر عن حالة تم رؤيتها"
                 android:textColor="#62c7ff"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+
+                />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
@@ -155,12 +158,12 @@
                 android:layout_marginRight="20dp"
                 android:text="النشر عن حالة مفقودة"
                 android:textColor="#62c7ff"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"

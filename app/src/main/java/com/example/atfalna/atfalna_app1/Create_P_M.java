@@ -90,9 +90,7 @@ public class Create_P_M extends AppCompatActivity {
         sp_month_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_month_m = selectspinnerMonth;
+                S_month_m = adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
@@ -104,11 +102,8 @@ public class Create_P_M extends AppCompatActivity {
         sp_city_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_city_m = selectspinnerMonth;
+                S_city_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -118,11 +113,8 @@ public class Create_P_M extends AppCompatActivity {
         sp_color_eye_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_color_eye_m = selectspinnerMonth;
+                S_color_eye_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -132,25 +124,18 @@ public class Create_P_M extends AppCompatActivity {
         sp_color_hair_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_color_hair_m = selectspinnerMonth;
+                S_color_hair_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });//--------sp_color_hair_m
 
         sp_color_body_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_color_body_m = selectspinnerMonth;
+                S_color_body_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -160,28 +145,20 @@ public class Create_P_M extends AppCompatActivity {
         sp_length_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_length_m = selectspinnerMonth;
+                S_length_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });//--------sp_length_m
 
         sp_wiegth_m.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String selectspinnerMonth = adapterView.getItemAtPosition(i).toString();
-                S_wiegth_m = selectspinnerMonth;
+                S_wiegth_m = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });//--------sp_wiegth_m
 
@@ -189,8 +166,6 @@ public class Create_P_M extends AppCompatActivity {
         S_email_us = gloablV.getEmail_user_login();
         S_user_id_m = gloablV.getUser_id_login();
         tv_show_user_id_m =findViewById(R.id.tv_show_user_id_m);
-     //   tv_show_user_id_m.setText(S_user_id_m);
-
         S_user_name_m = gloablV.getUser_name_login();
 
         Tv_show_lat_m =findViewById(R.id.tv_show_lat_m);
@@ -309,6 +284,8 @@ public class Create_P_M extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الحالة .. ِشكرا لك", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),All_P_F.class));
+                            CustomIntent.customType(getApplicationContext(), "up-to-bottom");
                             pdialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات المدخلة)", Toast.LENGTH_SHORT).show();
@@ -316,6 +293,8 @@ public class Create_P_M extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error ::" +e, Toast.LENGTH_LONG).show();
+                        pdialog.dismiss();
                     }
                 }
             };

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,6 +65,7 @@ public class Login extends AppCompatActivity {
         dialog.show();
         dialog.setMessage(" لحظة");
 
+
         final String Log_in_email = Login_email.getText().toString().trim();
         final String Log_in_password = Login_password.getText().toString().trim();
 
@@ -99,7 +101,10 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             dialog.dismiss();
                         } else {
-                            Toast.makeText(Login.this, "البيانات غير صحيحة", Toast.LENGTH_SHORT).show();
+                            final Toast toast = Toast.makeText(Login.this, "البيانات غير صحيحة", Toast.LENGTH_SHORT);
+                            View bg =toast.getView();
+                            bg.setBackgroundColor(Color.RED);
+                            toast.show();
                             dialog.dismiss();
                         }
                     } catch (JSONException e) {
@@ -139,15 +144,6 @@ public class Login extends AppCompatActivity {
 
         Login_email.requestFocus();
 
-//        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-//
-//        builder .setMessage("هل تريد الخروج ...")
-//                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                    }
-//                }).setNegativeButton(" لا", null).show();
     }
 
 

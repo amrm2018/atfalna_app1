@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by amr1 on 3/16/2018.
  */
 
-public class Login_Send_Data  extends StringRequest {
+public class Login_Send_Data  extends StringRequest  {
 
     private static final String SEND_DATA_URL = "http://192.168.1.3/atfalna_app/login.php";
     private Map<String,String> MapData;
