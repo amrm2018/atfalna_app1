@@ -5,7 +5,6 @@ package com.example.atfalna.atfalna_app1;
  */
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,32 +13,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import maes.tech.intentanim.CustomIntent;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class Rec_V_Ad_f_id extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private int previousPosition = 0;
 
     String S_code_p_f ;
-
     private List<listitem_f_usid> List_Item;
     private Context context;
 
-    public RecyclerViewAdapter(List<listitem_f_usid> list_Item, Context context) {
+    public Rec_V_Ad_f_id(List<listitem_f_usid> list_Item, Context context) {
         List_Item = list_Item;
         this.context = context;
     }
@@ -121,9 +110,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public MenuItemViewHolder(View view) {
             super(view);
-            tv_username_f_row =view.findViewById(R.id.tv_user_name_f_row);
+            tv_username_f_row =view.findViewById(R.id.tv_user_name_f_rec_v);
             tv_city_f_row =view.findViewById(R.id.tv_city_f_row);
-            tv_date_f_row =view.findViewById(R.id.tv_date_f_row);
+            tv_date_f_row =view.findViewById(R.id.tv_date_f_rec_v);
             tv_code_post_f_row =view.findViewById(R.id.tv_code_post_f_row);
             img_f_row =view.findViewById(R.id.img_f_row);
 

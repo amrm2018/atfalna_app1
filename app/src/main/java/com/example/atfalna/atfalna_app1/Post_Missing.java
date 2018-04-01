@@ -119,7 +119,7 @@ public class Post_Missing extends AppCompatActivity {
         tv_code_post_m = findViewById(R.id.tv_code_post_m);
 
         tv_user_name_m = findViewById(R.id.tv_user_name_p_m);
-        tv_date_m = findViewById(R.id.tv_date_f_row);
+        tv_date_m = findViewById(R.id.tv_date_f_rec_v);
         tv_time_m = findViewById(R.id.tv_time_m);
         tv_city_m = findViewById(R.id.tv_city_m);
         tv_bonus_m = findViewById(R.id.tv_bonus_m);

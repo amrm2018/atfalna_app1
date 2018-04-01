@@ -52,7 +52,7 @@
         <activity android:name=".Post_found" />
         <activity android:name=".Post_Missing" />
         <activity
-            android:name=".Profile"
+            android:name=".all_p_f_usid"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <!--
@@ -79,7 +79,11 @@
         <activity
             android:name=".Map_show_palce_m"
             android:label="@string/title_activity_map_show_palce_m" />
-        <activity android:name=".Edit_p_f"></activity>
+        <activity android:name=".Edit_p_f" />
+        <activity
+            android:name=".All_P_F_Rec_v"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Profile_User"></activity>
     </application>
 
 </manifest>

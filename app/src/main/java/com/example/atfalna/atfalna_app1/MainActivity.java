@@ -23,8 +23,6 @@ import org.json.JSONObject;
 
 import maes.tech.intentanim.CustomIntent;
 
-import static maes.tech.intentanim.CustomIntent.customType;
-
 public class MainActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
@@ -40,11 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // textView_email=findViewById(R.id.tv_show_email_main);
-
-        // textView_id=findViewById(R.id.tv_show_id_main);
         textView_user_name = findViewById(R.id.tv_user_name);
-
 
         gloablV = (GloablV) getApplicationContext();
         S_user_email = gloablV.getEmail_user_login();
@@ -135,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void go_profil(View view) {
-        startActivity(new Intent(getApplicationContext(), Profile.class));
+        startActivity(new Intent(getApplicationContext(), all_p_f_usid.class));
         CustomIntent.customType(MainActivity.this, "bottom-to-up");
     }
 
@@ -154,6 +148,10 @@ public class MainActivity extends AppCompatActivity {
                 }).setNegativeButton(" لا سابقي..", null).show();
     }
 
+    public void go_all_p_f_rec(View view) {
+        startActivity(new Intent(getApplicationContext(), All_P_F_Rec_v.class));
+        CustomIntent.customType(MainActivity.this, "fadein-to-fadeout");
+    }
 }
 
 /**

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.atfalna.atfalna_app1.Post_found"
-    android:background="#fff">
+    android:background="#fff"
+    tools:context="com.example.atfalna.atfalna_app1.Post_found">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,9 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/lin_all"
@@ -98,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:visibility="invisible"/>
+                        android:visibility="invisible" />
 
                 </RelativeLayout>
 
@@ -107,14 +107,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/rel_000"
-                    android:layout_marginTop="5dp">
+                    >
 
                     <ImageView
                         android:id="@+id/img_p_f"
                         android:layout_width="fill_parent"
                         android:layout_height="250dp"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginLeft="50dp"
+                        android:layout_margin="16dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/no_photo" />
 
@@ -125,7 +124,6 @@
                         android:layout_below="@id/img_p_f"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
                         android:background="@drawable/style_rel_p_f"
                         android:gravity="center_vertical">
 
@@ -394,7 +392,6 @@
                     </RelativeLayout>
 
 
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -457,20 +454,6 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp">
 
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:gravity="center"-->
-                        <!--android:padding="1dp">-->
-
-                        <!--<ImageView-->
-                            <!--android:layout_width="40dp"-->
-                            <!--android:layout_height="25dp"-->
-                            <!--android:src="@drawable/ic_share_p" />-->
-
-                    <!--</LinearLayout>-->
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -509,11 +492,11 @@
                             android:text="0" />
 
                         <ImageView
+                            android:id="@+id/img_like_f_1"
                             android:layout_width="45dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_like1"
-                            android:id="@+id/img_like_f_1"
-                            android:onClick="btn_add_like_f"/>
+                            android:onClick="btn_add_like_f"
+                            android:src="@drawable/ic_like1" />
 
 
                     </LinearLayout>
@@ -525,32 +508,33 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:layout_width="180dp"
                     android:layout_height="40dp"
-                    android:layout_weight="2"
-                    android:layout_marginTop="3dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/style_btn_comment"
                     android:onClick="btn_send_comment_p_f"
                     android:text="ارسال"
-                    android:textColor="#000"
-                    android:background="@drawable/style_btn_comment"/>
+                    android:textColor="#000" />
+
                 <EditText
                     android:id="@+id/ed_comment_p_f"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="10sp"
                     android:layout_marginTop="5dp"
+                    android:layout_weight="1"
                     android:hint="كتابة تعليق"
                     android:maxLines="3"
-                    android:paddingRight="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:textColor="#000"
                     android:textColorHint="#000" />
 

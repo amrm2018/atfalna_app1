@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -149,12 +148,12 @@ public class All_P_F extends AppCompatActivity {
             LayoutInflater layoutInflater = getLayoutInflater();
             View v1 = layoutInflater.inflate(R.layout.row_itme_p_f, null);
 
-            TextView code_p_f = v1.findViewById(R.id.tv_code_post_f_list);
-            TextView user_name_p_f = v1.findViewById(R.id.tv_user_name_f_row);
-            TextView city_f = v1.findViewById(R.id.tv_city_f_list);
-            TextView date_p_f = v1.findViewById(R.id.tv_date_f_row);
+            TextView code_p_f = v1.findViewById(R.id.tv_code_post_f_rec_v);
+            TextView user_name_p_f = v1.findViewById(R.id.tv_user_name_f_rec_v);
+            TextView city_f = v1.findViewById(R.id.tv_city_f_rec_v);
+            TextView date_p_f = v1.findViewById(R.id.tv_date_f_rec_v);
 
-            final ImageView imgfound = v1.findViewById(R.id.img_f_list);
+            final ImageView imgfound = v1.findViewById(R.id.img_f_rec_v);
 
             code_p_f.setText(listA.get(i).code_p_f);
             user_name_p_f.setText(listA.get(i).user_name_f);

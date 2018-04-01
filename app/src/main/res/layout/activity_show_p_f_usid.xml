@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.atfalna.atfalna_app1.Profile"
+    tools:context="com.example.atfalna.atfalna_app1.all_p_f_usid"
     android:background="#fff">
 
     <android.support.v7.widget.Toolbar

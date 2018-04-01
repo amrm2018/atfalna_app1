@@ -176,9 +176,9 @@ public class All_P_M extends AppCompatActivity {
             View v1 = layoutInflater.inflate(R.layout.row_itme_p_m, null);
 
             TextView code_p_m = v1.findViewById(R.id.tv_code_post_m_list);
-            TextView user_name_p_m = v1.findViewById(R.id.tv_user_name_f_row);
+            TextView user_name_p_m = v1.findViewById(R.id.tv_user_name_f_rec_v);
             TextView city_m = v1.findViewById(R.id.tv_city_m_list);
-            TextView date_p_m = v1.findViewById(R.id.tv_date_f_row);
+            TextView date_p_m = v1.findViewById(R.id.tv_date_f_rec_v);
 
 
             TextView case_name = v1.findViewById(R.id.tv_name_case_m_list);
