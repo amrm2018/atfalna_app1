@@ -117,15 +117,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), Create_P_F.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
         }else
-            Toast.makeText(getApplicationContext(), "bbbb", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "خطا الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
     }
 
     public void go_create_p_m(View view) {
 
+        if (I_us_id > 0){
         gloablV.setLat_m("");
         gloablV.setLng_m("");
         startActivity(new Intent(getApplicationContext(), Create_P_M.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
+        }else
+            Toast.makeText(getApplicationContext(), "خطا الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
 
     }
 

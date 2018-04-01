@@ -131,7 +131,7 @@ public class All_P_M_Rec_v extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "error JSONException :: " + e, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "خطا الاتصال بالخادم" , Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -141,7 +141,7 @@ public class All_P_M_Rec_v extends AppCompatActivity {
                 error.printStackTrace();
                 if (error.getMessage().contains("Network is unreachable"))
                 {
-                    Toast.makeText(getApplicationContext(), "لا يوجد انترنت", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "خطا الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
                 }
                 // Toast.makeText(getApplicationContext(), "VolleyError :: " + error, Toast.LENGTH_LONG).show();
             }
