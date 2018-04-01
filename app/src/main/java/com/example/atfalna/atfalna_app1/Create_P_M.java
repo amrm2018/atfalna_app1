@@ -280,7 +280,7 @@ public class Create_P_M extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الحالة .. ِشكرا لك", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),All_P_M.class));
+                            startActivity(new Intent(getApplicationContext(),All_P_M_Rec_v.class));
                             pdialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات المدخلة)", Toast.LENGTH_SHORT).show();

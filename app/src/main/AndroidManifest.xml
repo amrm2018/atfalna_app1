@@ -43,12 +43,6 @@
         <activity
             android:name=".Create_P_M"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".All_P_F"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".All_P_M"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".Post_found" />
         <activity android:name=".Post_Missing" />
         <activity
@@ -83,7 +77,9 @@
         <activity
             android:name=".All_P_F_Rec_v"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Profile_User"></activity>
+        <activity android:name=".Profile_User" />
+        <activity android:name=".All_P_M_Rec_v"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

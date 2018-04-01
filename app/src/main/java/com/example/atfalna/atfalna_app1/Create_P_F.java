@@ -106,7 +106,8 @@ public class Create_P_F extends AppCompatActivity {
         tv_show_user_id_f.setText(gloablV.getUser_id_login());
 
         S_user_id = gloablV.getUser_id_login();
-        if (tv_show_user_id_f.getText().toString().trim().equals("")) {
+
+        if (S_user_id == "") {
             Toast.makeText(getApplicationContext(), "لا يوجد اتصال بالانترنت", Toast.LENGTH_SHORT).show();
 
         }
@@ -162,7 +163,6 @@ public class Create_P_F extends AppCompatActivity {
 
         String Place = ED_place_the_case.getText().toString();
         String Info = ED_info_the_case.getText().toString();
-        // int Us_id_f = Integer.parseInt( tv_show_user_id_f.getText().toString());
         String Us_id_f = tv_show_user_id_f.getText().toString();
         String User_name_f = tv_show_user_name_f.getText().toString().trim();
 
@@ -170,7 +170,7 @@ public class Create_P_F extends AppCompatActivity {
         String Lat_f = Tv_show_lat_f.getText().toString().trim();
         String Lng_f = Tv_show_lng_f.getText().toString().trim();
 
-        int iyear = Integer.parseInt(ED_year.getText().toString().trim());
+      //  Integer iyear = Integer.parseInt(Year);
 
         if (Day.isEmpty()) {
             ED_day.setError("اكتب اليوم");
@@ -182,11 +182,13 @@ public class Create_P_F extends AppCompatActivity {
             ED_year.setError("رقم السنة غير صحيح");
             ED_year.requestFocus();
             dialog.dismiss();
-        } else if (iyear > 2030 && iyear < 1980) {
-            ED_year.setError("رقم السنة غير صحيح");
-            ED_year.requestFocus();
-            dialog.dismiss();
-        } else if (Place.isEmpty()) {
+        }
+//        else if (iyear >= 2019 && iyear < 1980) {
+//            ED_year.setError("رقم السنة غير صحيح");
+//            ED_year.requestFocus();
+//            dialog.dismiss();
+//        }
+        else if (Place.isEmpty()) {
             ED_place_the_case.setError("أكتب مكان الحالة بالتفصيل");
             ED_place_the_case.requestFocus();
             dialog.dismiss();
@@ -202,7 +204,7 @@ public class Create_P_F extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
                             Toast.makeText(getApplicationContext(), "تم نشر الاعلان", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),All_P_F.class));
+                            startActivity(new Intent(getApplicationContext(),All_P_F_Rec_v.class));
                             dialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "يوجد خطأ ( تاكد من البيانات)", Toast.LENGTH_SHORT).show();

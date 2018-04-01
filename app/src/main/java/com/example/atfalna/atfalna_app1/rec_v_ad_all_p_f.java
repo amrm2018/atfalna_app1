@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -119,9 +118,9 @@ public class rec_v_ad_all_p_f extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public MenuItemViewHolder(View view) {
             super(view);
-            tv_user_name_f_rec_v = view.findViewById(R.id.tv_user_name_f_rec_v);
+            tv_user_name_f_rec_v = view.findViewById(R.id.tv_user_name_m_rec_v);
             tv_city_f_rec_v = view.findViewById(R.id.tv_city_f_rec_v);
-            tv_date_f_rec_v = view.findViewById(R.id.tv_date_f_rec_v);
+            tv_date_f_rec_v = view.findViewById(R.id.tv_date_m_rec_v);
             tv_code_post_f_rec_v = view.findViewById(R.id.tv_code_post_f_rec_v);
             img_f_rec_v = view.findViewById(R.id.img_f_rec_v);
 

@@ -36,7 +36,6 @@
         android:layout_marginTop="22dp"
         android:elevation="4dp"
         android:src="@drawable/logo_pro"
-        android:onClick="go_all_p_f_rec"
         />
 
     <TextView
@@ -51,7 +50,19 @@
         android:textColor="#000"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:onClick="go_profil"/>
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_user_name"
+        android:id="@+id/img_refresh_data"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_refresh_data"
+        android:visibility="invisible"
+        android:onClick="refresh_data"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +77,7 @@
             android:layout_marginTop="2dp"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:onClick="go_all_p_f">
+            android:onClick="go_all_p_f_rec">
 
             <TextView
                 android:layout_width="wrap_content"

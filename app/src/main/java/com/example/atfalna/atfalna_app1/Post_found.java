@@ -209,9 +209,7 @@ public class Post_found extends AppCompatActivity {
         final TextView tv_total_comm_f = findViewById(R.id.tv_total_comm_f);
         String url_comm_f = sipurl + "/atfalna_app/show_all_comment_found.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
-
         listcomment_f.clear();
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_comm_f,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -315,8 +313,6 @@ public class Post_found extends AppCompatActivity {
 
     }
 
-
-
     public void get_a_like_f() {
         String url_get_like_f = sipurl + "/atfalna_app/show_like_f.php?code_p_f=" + S_code_p_f;
         requestQueue = Volley.newRequestQueue(this);
@@ -388,11 +384,5 @@ public class Post_found extends AppCompatActivity {
         });
         queue.add(request);
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        startActivity(new Intent(getApplicationContext(), All_P_F.class));
-//        CustomIntent.customType(Post_found.this, "right-to-left");
-//    }
 
 }

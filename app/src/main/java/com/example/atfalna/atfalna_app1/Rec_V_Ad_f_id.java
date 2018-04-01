@@ -110,9 +110,9 @@ public class Rec_V_Ad_f_id extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public MenuItemViewHolder(View view) {
             super(view);
-            tv_username_f_row =view.findViewById(R.id.tv_user_name_f_rec_v);
+            tv_username_f_row =view.findViewById(R.id.tv_user_name_m_rec_v);
             tv_city_f_row =view.findViewById(R.id.tv_city_f_row);
-            tv_date_f_row =view.findViewById(R.id.tv_date_f_rec_v);
+            tv_date_f_row =view.findViewById(R.id.tv_date_m_rec_v);
             tv_code_post_f_row =view.findViewById(R.id.tv_code_post_f_row);
             img_f_row =view.findViewById(R.id.img_f_row);
 

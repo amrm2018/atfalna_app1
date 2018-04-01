@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,17 +22,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
     GloablV gloablV;
-    String S_user_email, S_user_id, S_user_name;
+    String S_user_email ;
+    int I_us_id ;
     String urlid;
     String sip = "http://192.168.1.3";
 
-    TextView textView_id, textView_email, textView_user_name;
+    TextView textView_user_name;
+    ImageView img_refresh_data ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView_user_name = findViewById(R.id.tv_user_name);
+        img_refresh_data = findViewById(R.id.img_refresh_data);
 
         gloablV = (GloablV) getApplicationContext();
         S_user_email = gloablV.getEmail_user_login();
@@ -46,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         urlid = sip + "/atfalna_app/show_userid.php?useremail=" + S_user_email;
         get_userid();//خاص بانه يجيب ال id بتاع ال user اللى يدخل الapp
-
+        refresh();
     }
 
     public void get_userid() {
@@ -64,9 +71,11 @@ public class MainActivity extends AppCompatActivity {
                                 String us_name = res.getString("user_name");
                                 // textView_id.setText(usid);
                                 textView_user_name.setText(us_name);
+                                I_us_id =Integer.valueOf(usid);
 
                                 gloablV.setUser_id_login(usid);
                                 gloablV.setUser_name_login(us_name);
+                                img_refresh_data.setVisibility(View.INVISIBLE);
 
                             }
                         } catch (JSONException e) {
@@ -102,12 +111,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void go_create_p_f(View view) {
 
+        if (I_us_id > 0){
         gloablV.setLat_f("");
         gloablV.setLng_f("");
-
         startActivity(new Intent(getApplicationContext(), Create_P_F.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
-
+        }else
+            Toast.makeText(getApplicationContext(), "bbbb", Toast.LENGTH_SHORT).show();
     }
 
     public void go_create_p_m(View view) {
@@ -116,15 +126,16 @@ public class MainActivity extends AppCompatActivity {
         gloablV.setLng_m("");
         startActivity(new Intent(getApplicationContext(), Create_P_M.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
+
     }
 
     public void go_all_p_f(View view) {
-        startActivity(new Intent(getApplicationContext(), All_P_F.class));
+        startActivity(new Intent(getApplicationContext(), All_P_F_Rec_v.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
     }
 
     public void go_all_p_m(View view) {
-        startActivity(new Intent(getApplicationContext(), All_P_M.class));
+        startActivity(new Intent(getApplicationContext(), All_P_M_Rec_v.class));
         CustomIntent.customType(MainActivity.this, "left-to-right");
     }
 
@@ -150,9 +161,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void go_all_p_f_rec(View view) {
         startActivity(new Intent(getApplicationContext(), All_P_F_Rec_v.class));
+        CustomIntent.customType(MainActivity.this, "left-to-right");
+    }
+
+
+    public void refresh_data(View view) {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
         CustomIntent.customType(MainActivity.this, "fadein-to-fadeout");
+        refresh();
+
+    }
+    public void refresh() {
+        if ( I_us_id == 0 ){
+            img_refresh_data.setVisibility(View.VISIBLE);
+        }else
+            img_refresh_data.setVisibility(View.INVISIBLE);
+
     }
 }
+
+
+
+
 
 /**
  * left-to-right

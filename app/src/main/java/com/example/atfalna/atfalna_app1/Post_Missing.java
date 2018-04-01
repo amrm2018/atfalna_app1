@@ -74,7 +74,7 @@ public class Post_Missing extends AppCompatActivity {
         tv_time_m.setText(data_p_m.getExtras().getString("text_time_m"));
 
         tv_city_m.setText(data_p_m.getExtras().getString("text_city_m"));
-        tv_bonus_m.setText(data_p_m.getExtras().getString("text_bonus_m"));
+        tv_bonus_m.setText(data_p_m.getExtras().getString("text_bonus_m")+" جنية ");
         tv_phone_m.setText(data_p_m.getExtras().getString("text_phone_m"));
         tv_gender_m.setText(data_p_m.getExtras().getString("text_gender_m"));
 
@@ -119,7 +119,7 @@ public class Post_Missing extends AppCompatActivity {
         tv_code_post_m = findViewById(R.id.tv_code_post_m);
 
         tv_user_name_m = findViewById(R.id.tv_user_name_p_m);
-        tv_date_m = findViewById(R.id.tv_date_f_rec_v);
+        tv_date_m = findViewById(R.id.tv_date_m_rec_v);
         tv_time_m = findViewById(R.id.tv_time_m);
         tv_city_m = findViewById(R.id.tv_city_m);
         tv_bonus_m = findViewById(R.id.tv_bonus_m);

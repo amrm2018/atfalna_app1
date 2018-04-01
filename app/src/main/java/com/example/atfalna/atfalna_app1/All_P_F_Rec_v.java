@@ -96,7 +96,7 @@ public class All_P_F_Rec_v extends AppCompatActivity {
                                 String img_f = res.getString("img_f");
 
                                 String us_id_f = res.getString("us_id");
-                                String user_name_f = res.getString("user_name_f");
+                                String user_name_f = res.getString("user_name");
 
                                 String lat_f = res.getString("lat_f");
                                 String lng_f = res.getString("lng_f");
@@ -122,7 +122,12 @@ public class All_P_F_Rec_v extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley", "Error");
-                Toast.makeText(getApplicationContext(), "VolleyError :: " + error, Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                if (error.getMessage().contains("Network is unreachable"))
+                {
+                    Toast.makeText(getApplicationContext(), "لا يوجد انترنت", Toast.LENGTH_LONG).show();
+                }
+               // Toast.makeText(getApplicationContext(), "VolleyError :: " + error, Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
