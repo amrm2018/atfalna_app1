@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Create_P_M_Send_Data extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.3/atfalna_app/post_missing.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/post_missing.php";
     private Map<String, String> MapData;
 
     public Create_P_M_Send_Data(

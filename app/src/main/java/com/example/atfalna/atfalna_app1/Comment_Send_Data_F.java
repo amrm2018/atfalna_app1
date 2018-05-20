@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class Comment_Send_Data_F extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.3/atfalna_app/send_comment.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/send_comment.php";
     private Map<String, String> MapData;
 
     public Comment_Send_Data_F(String comment_p_f, String us_id_login, String code_p_f, Response.Listener<String> listener) {

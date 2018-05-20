@@ -10,7 +10,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text="رجوع"
         android:background="@drawable/style_btn_comment"
         android:onClick="btn_back"/>
 

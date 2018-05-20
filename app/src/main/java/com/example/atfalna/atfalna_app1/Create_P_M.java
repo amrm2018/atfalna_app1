@@ -288,7 +288,7 @@ public class Create_P_M extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ::" +e, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), ": خطا الاتصال بالخادم :" +e, Toast.LENGTH_LONG).show();
                         pdialog.dismiss();
                     }
                 }

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Create_P_F_Send_Data  extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.3/atfalna_app/post_found.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/post_found.php";
     private Map<String, String> MapData;
 
     public Create_P_F_Send_Data(String img_f,
@@ -20,7 +20,7 @@ public class Create_P_F_Send_Data  extends StringRequest {
                                 String day_f, String month_f , String year_f,
                                 String gender_f, String phone_f ,
                                 String place_f, String info_f,
-                                String us_id_f ,  String user_name_f,
+                                String us_id_f ,
                                 String lat_f , String lng_f ,
                                 Response.Listener<String> listener) {
         super(Method.POST, SEND_DATA_URL, listener, null);
@@ -41,7 +41,7 @@ public class Create_P_F_Send_Data  extends StringRequest {
         MapData.put("info_f", info_f);
 
         MapData.put("us_id_f", us_id_f);
-        MapData.put("user_name_f", user_name_f);
+
 
         MapData.put("lat_f", lat_f);
         MapData.put("lng_f", lng_f);

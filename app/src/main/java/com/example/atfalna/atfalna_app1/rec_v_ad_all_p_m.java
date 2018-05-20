@@ -54,7 +54,7 @@ public class rec_v_ad_all_p_m extends RecyclerView.Adapter<RecyclerView.ViewHold
         menuItemHolder.tv_phone_m_recy_v.setText(List_Item.get(position).getPhone_m());
         S_code_p_f = menuItemHolder.tv_code_post_m_rec_v.getText().toString();
 
-        Picasso.with(context).load("http://192.168.1.3/atfalna_app/img_missing/" + List_Item
+        Picasso.with(context).load("http://192.168.1.4/atfalna_app/img_missing/" + List_Item
                 .get(position).getImg_m())
                 .into(menuItemHolder.img_m_rec_v);
 

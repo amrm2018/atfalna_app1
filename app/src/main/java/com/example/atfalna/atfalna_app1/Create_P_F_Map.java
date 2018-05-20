@@ -44,7 +44,7 @@ public class Create_P_F_Map extends FragmentActivity implements OnMapReadyCallba
 
         // Add a marker in Sydney and move the camera
         LatLng egypt = new LatLng(30.048001, 31.231549);
-        mMap.addMarker(new MarkerOptions().position(egypt).title("your in egypt")
+        mMap.addMarker(new MarkerOptions().position(egypt).title("")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker)) ).showInfoWindow();
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(egypt, 6));
@@ -53,10 +53,10 @@ public class Create_P_F_Map extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onMapClick(LatLng latLng) {
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(latLng).title("my location")
+                mMap.addMarker(new MarkerOptions().position(latLng).title("مكان الحالة هنا")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker))
                 ).showInfoWindow();
-                Toast.makeText(Create_P_F_Map.this, latLng.latitude + " , " +latLng.longitude, Toast.LENGTH_SHORT).show();
+
                 Slat = String.valueOf((latLng.latitude));
                 Slng = String.valueOf((latLng.longitude));
             }
@@ -72,7 +72,6 @@ public class Create_P_F_Map extends FragmentActivity implements OnMapReadyCallba
         gloablV.setLng_f(Slng);
 
         Intent intentmap = new Intent(getApplicationContext(),Create_P_F.class);
-
         startActivity(intentmap);
 
 

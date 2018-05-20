@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     String S_user_email ;
     int I_us_id ;
     String urlid;
-    String sip = "http://192.168.1.3";
+    String sip = "http://192.168.1.4";
 
     TextView textView_user_name;
     ImageView img_refresh_data ;

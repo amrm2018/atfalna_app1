@@ -12,15 +12,15 @@ import java.util.Map;
 
 public class Registration_Send_Data  extends StringRequest {
 
-    private static final String SEND_DATA_URL = "http://192.168.1.3/atfalna_app/register.php";
+    private static final String SEND_DATA_URL = "http://192.168.1.4/atfalna_app/register.php";
     private Map<String, String> MapData;
 
     public Registration_Send_Data(String name, String email, String password,String gender, String phone, Response.Listener<String> listener) {
         super(Method.POST, SEND_DATA_URL, listener, null);
         MapData = new HashMap<>();
 
-        MapData.put("user_name", name);
         MapData.put("user_email", email);
+        MapData.put("user_name", name);
         MapData.put("password", password);
         MapData.put("user_gender", gender);
         MapData.put("user_phone", phone);

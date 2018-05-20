@@ -170,12 +170,12 @@ public class Create_P_F extends AppCompatActivity {
         String Lat_f = Tv_show_lat_f.getText().toString().trim();
         String Lng_f = Tv_show_lng_f.getText().toString().trim();
 
-      //  Integer iyear = Integer.parseInt(Year);
 
         if (Day.isEmpty()) {
             ED_day.setError("اكتب اليوم");
             dialog.dismiss();
-        } else if (Year.isEmpty()) {
+        }
+        else if (Year.isEmpty()) {
             ED_year.setError("اكتب السنة");
             dialog.dismiss();
         } else if (!validateyear(ED_year.getText().toString().trim())) {
@@ -183,11 +183,6 @@ public class Create_P_F extends AppCompatActivity {
             ED_year.requestFocus();
             dialog.dismiss();
         }
-//        else if (iyear >= 2019 && iyear < 1980) {
-//            ED_year.setError("رقم السنة غير صحيح");
-//            ED_year.requestFocus();
-//            dialog.dismiss();
-//        }
         else if (Place.isEmpty()) {
             ED_place_the_case.setError("أكتب مكان الحالة بالتفصيل");
             ED_place_the_case.requestFocus();
@@ -212,7 +207,7 @@ public class Create_P_F extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ::"+ e , Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " : خطا الاتصال بالخادم :"+ e , Toast.LENGTH_LONG).show();
                         dialog.dismiss();
                     }
                 }
@@ -224,7 +219,7 @@ public class Create_P_F extends AppCompatActivity {
                     Day, S_month, Year,
                     Gender_case, Phone,
                     Place, Info,
-                    Us_id_f, User_name_f,
+                    Us_id_f,
                     Lat_f, Lng_f,
                     responseLisener_p_f);
             RequestQueue queue_p_f = Volley.newRequestQueue(getApplicationContext());

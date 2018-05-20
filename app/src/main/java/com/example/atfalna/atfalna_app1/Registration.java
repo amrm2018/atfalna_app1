@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 public class Registration extends AppCompatActivity {
 
     EditText name , email , password1 , password2 , phone ;
+
     RadioButton RD_male , RD_female ;
 
     @Override
@@ -108,7 +109,7 @@ public class Registration extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
-                            Toast.makeText( Registration.this , "تم التسجيل بنجاح,أذهب و سجل دخول", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText( Registration.this , "تم التسجيل بنجاح,أذهب و سجل دخول", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),Login.class));
                             dialog.dismiss();
                         } else {

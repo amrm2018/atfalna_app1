@@ -52,7 +52,7 @@ public class Rec_V_Ad_f_id extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         menuItemHolder.tv_code_post_f_row.setText(List_Item.get(position).getCode_p_f());
         S_code_p_f =menuItemHolder.tv_code_post_f_row.getText().toString();
 
-        Picasso.with(context).load("http://192.168.1.3/atfalna_app/img_found/"+List_Item
+        Picasso.with(context).load("http://192.168.1.4/atfalna_app/img_found/"+List_Item
                 .get(position).getImg_f())
                 .into(menuItemHolder.img_f_row);
 
